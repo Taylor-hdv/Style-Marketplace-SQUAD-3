@@ -1,4 +1,4 @@
-import Button from "./button/button";
+import Button from "../button/button";
 interface footerProps {
   title: string;
   text: string

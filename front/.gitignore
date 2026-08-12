@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+src/assets/header/profileIcon.svg
+src/assets/cardProduct
