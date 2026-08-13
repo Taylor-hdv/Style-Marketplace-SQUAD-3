@@ -11,3 +11,23 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+
+model Product {
+  id            String    @id @default(cuid())
+  name          String
+  description   String
+  discount      Float
+  tag           String
+  variants      Variant[]
+}
+
+model Variant {
+  id            String    @id @default(cuid())
+  color         String
+  size          String
+  quantity      Int
+  price         Decimal
+  productId     String
+  product       Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
