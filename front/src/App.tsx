@@ -1,10 +1,19 @@
 import { BrowserRouter, Routes } from 'react-router'
-import Footer from './components/header&footer/footer'
+import CardProduct from './components/cardProduct/CardProduct'
 
 function App() {
   return(
-    <Footer title="Stay in Style" backgoundColor="bg-blackCustom" text="Subscribe to our newsletter and be the first to know about new arrivals,
-exclusive offers, and style tips." />
+    <CardProduct 
+      src="/src/assets/cardProduct/productImage.svg"
+      alt="Product Image"
+      title="Denim Jeans"
+      price="$ 99"
+      quantity={10}
+      tag="New"
+      rating={4.5}
+      oldPrice="129"
+      tagColor="bg-blackCustom"
+    />
   )
 }
 

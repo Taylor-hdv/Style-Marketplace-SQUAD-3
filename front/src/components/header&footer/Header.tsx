@@ -16,19 +16,19 @@ function Header ({ Notifications }: headerProps) {
             <section className="w-screen py-2 justify-center items-center bg-blackCustom">
                 <p className="text-whiteCustom text-sm font-segoe text-center">Free shipping on orders over $100 | New arrivals daily</p>
             </section>
-            <section className="w-screen px-4 py-4 justify-between items-center bg-whiteCustom flex flex-row lg:px-69 border-b border-grayCustom">
-                <img src={menu} alt="Menu" className="w-10 h-10 lg:hidden" />
+            <section className="w-screen px-4 py-4 justify-between items-center bg-whiteCustom flex flex-row md:px-8 lg:px-69 border-b border-grayCustom">
+                <img src={menu} alt="Menu" className="w-10 h-10 md:hidden" />
                 <div className="flex flex-row gap-2 items-center">
                     <img src={logo} alt="Logo" className="w-8 h-8" />
                     <p className="text-blackCustom font-bold text-[1.25rem] font-segoe">STYLE</p>
                 </div>
-                <div className="hidden flex-row gap-8 items-center lg:flex">
+                <div className="hidden flex-row gap-8 items-center md:flex">
                     <button className="text-[rgba(3, 7, 17, 0.80)] font-semibold text-[0.875rem]">New In</button>
                     <button className="text-[rgba(3, 7, 17, 0.80)] font-semibold text-[0.875rem]">Womam</button>
                     <button className="text-[rgba(3, 7, 17, 0.80)] font-semibold text-[0.875rem]">Men</button>
                     <button className="text-[rgba(3, 7, 17, 0.80)] font-semibold text-[0.875rem]">Sale</button>
                 </div>
-                <div className="hidden items-center flex-row bg-[rgba(243, 244, 246, 0.50)] rounded-[0.625rem] gap-4 px-3 py-[0.66rem] lg:flex border border-grayCustom ">
+                <div className="hidden items-center flex-row bg-[rgba(243, 244, 246, 0.50)] rounded-[0.625rem] gap-4 px-3 py-[0.66rem] md:flex border border-grayCustom ">
                     <img src={search} alt="Search" className="w-4 h-4" />
                     <input placeholder="Search for products..." className="bg-transparent border-none focus:outline-none text-[#6B7280] text-[0.875rem] font-segoe"></input>
                 </div>
