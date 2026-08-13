@@ -16,10 +16,8 @@ function Header ({ Notifications }: headerProps) {
             <section className="w-screen py-2 justify-center items-center bg-blackCustom">
                 <p className="text-whiteCustom text-sm font-segoe text-center">Free shipping on orders over $100 | New arrivals daily</p>
             </section>
-            <section className="w-screen px-4 py-4 justify-between items-center bg-whiteCustom flex flex-row md:px-4 border-b border-grayCustom">
+            <section className="w-screen px-4 py-4 justify-between items-center bg-whiteCustom flex flex-row md:px-4 lg:px-24 xl:px-[14.375vw] border-b border-grayCustom">
                 <img src={menu} alt="Menu" className="w-10 h-10 md:hidden" />
-                <div className="hidden lg:block" ></div>
-                <div className="hidden lg:block" ></div>
                 <div className="flex flex-row gap-2 items-center ">
                     <img src={logo} alt="Logo" className="w-8 h-8" />
                     <p className="text-blackCustom font-bold text-[1.25rem] font-segoe">STYLE</p>
@@ -45,8 +43,6 @@ function Header ({ Notifications }: headerProps) {
                         )}
                     </div>
                 </div>
-                <div className="hidden lg:block" ></div>
-                <div className="hidden lg:block" ></div>
             </section>
         </header>
     );

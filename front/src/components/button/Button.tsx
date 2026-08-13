@@ -1,9 +1,9 @@
-const buttonBackgroundColor = {
+export const buttonBackgroundColor = {
     blackCustom: 'bg-blackCustom text-whiteCustom',
     whiteCustom: 'bg-whiteCustom text-blackCustom',
     grayCustom2: 'bg-grayCustom2 text-whiteCustom',
     redCustom: 'bg-redCustom text-whiteCustom',
-}
+} as const;
 interface buttonProps {
     backgroundColor: keyof typeof buttonBackgroundColor;
     py: string;
