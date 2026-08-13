@@ -11,3 +11,26 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Cart {
+  id         Int       @id    @default(autoincrement())
+  totalPrice Float            @default(0.0)
+  shipping   Float            @default(0.0)
+  quantity   Int              @default(0)
+
+  userId     Int              @unique
+  //user       User             @relation(fields: [userId], references: [id])
+
+  //variants   CartVariant[]
+
+  order      Order?
+}
+
+model Order {
+  id         Int       @id    @default(autoincrement())
+  status     String
+  address    String
+
+  cartId     Int              @unique
+  cart       Cart             @relation(fields: [cartId], references: [id])
+}
