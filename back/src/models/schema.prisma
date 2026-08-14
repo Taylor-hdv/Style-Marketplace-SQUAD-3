@@ -1,7 +1,7 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Get a free hosted Postgres database in seconds: npx create-db
+// Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
   provider = "prisma-client"
@@ -12,25 +12,6 @@ datasource db {
   provider = "postgresql"
 }
 
-
-model Product {
-  id            String    @id @default(cuid())
-  name          String
-  description   String
-  discount      Float
-  tag           String
-  variants      Variant[]
-}
-
-model Variant {
-  id            String    @id @default(cuid())
-  color         String
-  size          String
-  quantity      Int
-  price         Decimal
-  productId     String
-  product       Product @relation(fields: [productId], references: [id], onDelete: Cascade)
-}
 enum Gender {
   MALE
   FEMALE
@@ -52,6 +33,16 @@ model User{
   birthDate          DateTime? 
   memberSince        DateTime      @default(now())
   emailNotification  Boolean       @default(true)
+  phone Telephone?
   //hash              String
   //salt              String   
+}
+
+model Telephone{
+  id            String      @id @default(cuid())
+  DDD           String 
+  phoneNumber   String 
+  userId        String      @unique
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
 }
