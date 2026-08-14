@@ -12,46 +12,45 @@ datasource db {
   provider = "postgresql"
 }
 
-
 model Product {
-  id            String    @id @default(cuid())
-  name          String
-  description   String
-  discount      Float
-  tag           String
-  variants      Variant[]
+  id          String    @id @default(cuid())
+  name        String
+  description String
+  discount    Float
+  tag         String
+  variants    Variant[]
 }
 
 model Variant {
-  id            String    @id @default(cuid())
-  color         String
-  size          String
-  quantity      Int
-  price         Decimal
-  productId     String
-  product       Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  id        String  @id @default(cuid())
+  color     String
+  size      String
+  quantity  Int
+  price     Decimal
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 }
+
 enum Gender {
   MALE
   FEMALE
   OTHER
 }
 
-model User{
-
-  id                 String        @id @default(cuid())
-  firstName          String
-  lastName           String
-  email              String        @unique
-  smsNotification    Boolean       @default(false)
-  marketingEmails    Boolean       @default(false)
-  orderUpdates       Boolean       @default(true)
-  newArrivals        Boolean       @default(false)
-  gender             Gender?
-  salesAlerts        Boolean       @default(false)
-  birthDate          DateTime? 
-  memberSince        DateTime      @default(now())
-  emailNotification  Boolean       @default(true)
+model User {
+  id                String    @id @default(cuid())
+  firstName         String
+  lastName          String
+  email             String    @unique
+  smsNotification   Boolean   @default(false)
+  marketingEmails   Boolean   @default(false)
+  orderUpdates      Boolean   @default(true)
+  newArrivals       Boolean   @default(false)
+  gender            Gender?
+  salesAlerts       Boolean   @default(false)
+  birthDate         DateTime?
+  memberSince       DateTime  @default(now())
+  emailNotification Boolean   @default(true)
   //hash              String
   //salt              String   
 }
