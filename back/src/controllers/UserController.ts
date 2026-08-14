@@ -1,13 +1,8 @@
-import e, { Request, Response } from "express";
-import { PrismaClient } from "../generated/prisma/client";
-import { PrismaPg } from '@prisma/adapter-pg'; 
+import { Request, Response } from "express";
 import { Prisma } from "../generated/prisma/client";
+import { prisma } from "../config/prisma";
 
 
-
-
-const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
-const prisma = new PrismaClient({adapter});
 
 export class UserController{
 
@@ -41,11 +36,11 @@ export class UserController{
 
     public static async readUser(req:Request, resp:Response){
         try{
-            const {id} = req.params
+            const {userId} = req.params
 
             const foundUser = await prisma.user.findUnique({
-                where:{
-                    id:String(id)
+                where:{ 
+                    id:String(userId)
                 }
             })
             return resp.status(200).json(foundUser);
@@ -73,7 +68,7 @@ export class UserController{
 
     public static async updateUser(req:Request, resp:Response){
         try{
-            const {id} = req.params;
+            const {userId} = req.params;
             const {firstName,lastName,email,gender,birthDate,password} = req.body
 
             let updateData: Prisma.UserUpdateInput = {
@@ -86,7 +81,7 @@ export class UserController{
 
             const updatedUser = await prisma.user.update({
                 where:{ 
-                    id:String(id)
+                    id:String(userId)
                 },
 
                 data:updateData,
@@ -162,6 +157,7 @@ export class UserController{
         catch(error:any){
             return resp.status(500).json({message:error.message})
         }
+
     }
 
 }
