@@ -1,10 +1,9 @@
 import { BrowserRouter, Routes } from 'react-router'
+import Header from './components/header&footer/Header'
 
 function App() {
   return(
-    <>
-      <p className='text-amber-600'>Hello, world!</p>
-    </>
+    <Header Notifications={3} />
   )
 }
 

@@ -4,7 +4,7 @@
 // Get a free hosted Postgres database in seconds: npx create-db
 
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
   output   = "../generated/prisma"
 }
 
@@ -12,6 +12,25 @@ datasource db {
   provider = "postgresql"
 }
 
+
+model Product {
+  id            String    @id @default(cuid())
+  name          String
+  description   String
+  discount      Float
+  tag           String
+  variants      Variant[]
+}
+
+model Variant {
+  id            String    @id @default(cuid())
+  color         String
+  size          String
+  quantity      Int
+  price         Decimal
+  productId     String
+  product       Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
 enum Gender {
   MALE
   FEMALE
