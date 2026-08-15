@@ -1,9 +1,11 @@
 import { BrowserRouter, Routes } from 'react-router'
 import CardCategory from './components/cardCategory/CardCategory'
-import categoryIcon from './assets/cardCategory/categoryIcon.svg'
+import productIcon from "./assets/cardProduct/productImage.svg";
+
+
 function App() {
   return(
-    <CardCategory title="Camisetas" quantity="10" src={categoryIcon} alt="Camisetas" /> 
+    <CardCategory src={productIcon} alt="Product Icon" title="Clothing" quantity="100"></CardCategory>
   )
 }
 
