@@ -16,7 +16,7 @@ function Footer({ title, backgoundColor, text }: footerProps) {
             <div className="w-full md:w-fit px-4 py-[0.81rem] bg-whiteCustom rounded-xl ">
                 <input placeholder="Enter your email" className=" text-[1rem] text-[#9CA3AF] w-full md:w-[17.12rem]"></input>
             </div>
-                <Button py="py-[0.78rem]" px="px-8" width="w-full md:w-fit" backgroundColor="whiteCustom" text="Subscribe" textSize="text-[0.875rem]" />
+                <Button type="button" py="py-[0.78rem]" px="px-8" width="w-full md:w-fit" backgroundColor="whiteCustom" text="Subscribe" textSize="text-[0.875rem]" />
         </div>
     </footer>
   );

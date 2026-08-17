@@ -1,11 +1,13 @@
-import { BrowserRouter, Routes } from 'react-router'
-import CardCategory from './components/cardCategory/CardCategory'
-import productIcon from "./assets/cardProduct/productImage.svg";
-
+import { BrowserRouter } from 'react-router'
+import SignUp from './pages/SignUp'
+import Header from './components/header&footer/Header'
 
 function App() {
   return(
-    <CardCategory src={productIcon} alt="Product Icon" title="Clothing" quantity="100"></CardCategory>
+    <BrowserRouter>
+      <Header notifications={2}/>
+      <SignUp />
+    </BrowserRouter>
   )
 }
 
