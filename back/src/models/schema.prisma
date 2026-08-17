@@ -54,5 +54,46 @@ model User {
   emailNotification Boolean   @default(true)
   //hash              String
   //salt              String
-     
+  cart               Cart?
+  order              Order[]
+}
+
+
+
+model Cart {
+  id                 String        @id @default(cuid())
+  totalPrice         Float         @default(0.0)
+  shipping           Float         @default(0.0)
+  totalQuantity      Int           @default(0)
+
+  userId             String        @unique
+  user               User          @relation(fields: [userId], references: [id])
+  //items  CartVariant[]
+}
+
+enum OrderStatus {
+  PROCESSING
+  SHIPPED
+  DELIVERED
+}
+
+enum PaymentMethod {
+  PENDING
+  CREDIT_CARD
+  DEBIT_CARD
+  PIX
+}
+
+model Order {
+  id                String        @id @default(cuid())
+  totalQuantity     Int
+  status            OrderStatus   @default(PROCESSING)
+  adress            String
+  totalPrice        Float
+  date              DateTime      @default(now())
+  shipping          Float
+  paymentMethod     PaymentMethod @default(PENDING)
+
+  userId            String
+  user              User          @relation(fields: [userId], references: [id])
 }
