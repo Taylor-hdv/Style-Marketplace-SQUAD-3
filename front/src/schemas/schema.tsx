@@ -13,5 +13,10 @@ export const SignUpSchema = z.object({
     checkBox: z.boolean().refine((value) => value === true, {message: "Você deve aceitar os termos e condições"}),
 })
 .refine((data) => data.password === data.confirmPassword, {message: "As senhas não coincidem", path: ["confirmPassword"]});
+export const SignInSchema = z.object({
+    email: z.string().trim().email({message: "Email inválido"}),
+    password: z.string().trim().min(1, {message: "Senha é obrigatória"})
+});
 
+export type SignInFormData = z.infer<typeof SignInSchema>;
 export type SignUpFormData = z.infer<typeof SignUpSchema>;
