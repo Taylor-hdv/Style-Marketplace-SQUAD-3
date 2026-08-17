@@ -19,6 +19,7 @@ model Product {
   discount    Float
   tag         String
   variants    Variant[]
+  specification String
 }
 
 model Variant {
