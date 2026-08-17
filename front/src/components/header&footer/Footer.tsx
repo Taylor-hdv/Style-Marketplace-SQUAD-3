@@ -3,13 +3,13 @@ import Button from "../button/Button";
 interface footerProps {
   title: string;
   text: string
-  backgoundColor: string;
+  backgroundColor: string;
 }
-function Footer({ title, backgoundColor, text }: footerProps) {
+function Footer({ title, backgroundColor, text }: footerProps) {
   return (
-    <footer className={`w-screen ${backgoundColor} flex flex-col items-center justify-center py-20 gap-8 md:gap-10 px-4 md:px-16 lg:px-160`}>
-        <div className="flex flex-col items-center justify-center gap-4 md:gap-6">
-            <h1 className="text-whiteCustom text-4xl font-bold font-segoe">{title}</h1>
+    <footer className={`w-full ${backgroundColor} flex flex-col items-center justify-center py-20 gap-8 md:gap-10 px-4 md:px-16 2xl:px-160`}>
+        <div className="flex flex-col items-center w-full justify-center gap-4 md:gap-6">
+            <h1 className="text-whiteCustom text-4xl font-bold font-segoe text-center">{title}</h1>
             <p className="text-whiteCustom text-[1.25rem] font-segoe text-center">{text}</p>
         </div>
         <div className="flex w-full flex-col md:flex-row items-center justify-center gap-4">

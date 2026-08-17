@@ -1,4 +1,3 @@
-import Header from "../components/header&footer/Header";
 import Button from "../components/button/Button";
 import logo from "../assets/logo/logo.svg";
 import checkboxDefault from "../assets/signUp/checkboxDefault.svg";

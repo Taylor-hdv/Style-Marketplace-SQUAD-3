@@ -16,7 +16,7 @@ function Header ({ notifications }: headerProps) {
             <section className="w-full py-2 justify-center items-center bg-blackCustom">
                 <p className="text-whiteCustom text-sm font-segoe text-center">Free shipping on orders over $100 | New arrivals daily</p>
             </section>
-            <section className="w-full px-4 py-4 justify-between items-center bg-whiteCustom flex flex-row md:px-4 lg:px-24 xl:px-[14.375vw] border-b border-grayCustom">
+            <section className="w-full px-4 py-4 justify-between items-center bg-whiteCustom flex flex-row md:px-4 lg:px-24 2xl:px-[14.375vw] border-b border-grayCustom">
                 <img src={menu} alt="Menu" className="w-10 h-10 md:hidden" />
                 <div className="flex flex-row gap-2 items-center ">
                     <img src={logo} alt="Logo" className="w-8 h-8" />
