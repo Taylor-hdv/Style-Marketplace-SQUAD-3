@@ -12,11 +12,11 @@ interface headerProps {
 
 function Header ({ notifications }: headerProps) {
     return (
-        <header className="flex flex-col items-center justify-center">
-            <section className="w-screen py-2 justify-center items-center bg-blackCustom">
+        <header className="flex flex-col items-center justify-center sticky top-0 left-0 w-full z-50">
+            <section className="w-full py-2 justify-center items-center bg-blackCustom">
                 <p className="text-whiteCustom text-sm font-segoe text-center">Free shipping on orders over $100 | New arrivals daily</p>
             </section>
-            <section className="w-screen px-4 py-4 justify-between items-center bg-whiteCustom flex flex-row md:px-4 lg:px-24 xl:px-[14.375vw] border-b border-grayCustom">
+            <section className="w-full px-4 py-4 justify-between items-center bg-whiteCustom flex flex-row md:px-4 lg:px-24 xl:px-[14.375vw] border-b border-grayCustom">
                 <img src={menu} alt="Menu" className="w-10 h-10 md:hidden" />
                 <div className="flex flex-row gap-2 items-center ">
                     <img src={logo} alt="Logo" className="w-8 h-8" />

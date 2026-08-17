@@ -28,9 +28,7 @@ function SignUp() {
     navigate("/home");
   };
   return (
-    <div className="flex flex-col items-center w-screen min-h-screen bg-[linear-gradient(135deg,rgba(243,244,246,0.30)_0%,rgba(243,244,246,0.10)_100%)]">
-        <Header notifications={2} />
-        <section className="flex flex-col items-center justify-center w-full h-full py-12 lg:py-32 md:w-md px-4 gap-2">
+        <section className="flex flex-col items-center justify-center w-full h-full py-12 lg:py-32 md:w-md mx-auto px-4 gap-2 bg-[linear-gradient(135deg,rgba(243,244,246,0.30)_0%,rgba(243,244,246,0.10)_100%)]">
             <div className="flex flex-row gap-2 items-center ">
                 <img src={logo} alt="Logo" className="w-10 h-10" />
                 <p className="text-blackCustom font-bold text-[1.5rem] font-segoe">STYLE</p>
@@ -132,8 +130,6 @@ function SignUp() {
                 <p className="text-grayCustom3 font-segoe text-center font-semibold text-[0.875rem]">Already have an account? <a className="text-blackCustom text-[0.875rem] text-center font-semibold cursor-pointer" onClick={() => navigate("/login")}>Log in</a></p>
             </section>
         </section>
-    </div>
-
   )
 }
 export default SignUp;
