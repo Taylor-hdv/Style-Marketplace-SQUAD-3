@@ -126,7 +126,7 @@ function SignUp() {
                 <Button type="submit" py="py-[0.72rem]" px="px-8" width="w-full" backgroundColor="blackCustom" text="Create Account" textSize="text-[0.875rem]" hasBorder={false} />
                 </form>
 
-                <p className="text-grayCustom3 font-segoe text-center font-semibold text-[0.875rem]">Already have an account? <a className="text-blackCustom text-[0.875rem] text-center font-semibold cursor-pointer" onClick={() => navigate("/login")}>Log in</a></p>
+                <p className="text-grayCustom3 font-segoe text-center font-semibold text-[0.875rem]">Already have an account? <a className="text-blackCustom text-[0.875rem] text-center font-semibold cursor-pointer" onClick={() => navigate("/sign-in")}>Log in</a></p>
             </section>
         </section>
   )

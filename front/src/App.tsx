@@ -1,12 +1,12 @@
 import { BrowserRouter } from 'react-router'
-import SignUn from './pages/SignUp'
+import SignIn from './pages/SignIn'
 import Header from './components/header&footer/Header'
 
 function App() {
   return(
     <BrowserRouter>
       <Header notifications={2}/>
-      <SignUn />
+      <SignIn />
     </BrowserRouter>
   )
 }
