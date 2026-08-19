@@ -6,8 +6,9 @@ import starIcon from "../assets/profile/starIcon.svg";
 import cancelIcon from "../assets/profile/cancelIcon.svg";
 import profileIcon from "../assets/profile/profileIcon.svg";
 import Button from "../components/button/Button";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import MaskedInput from "react-maskedinput";
 import { profileSchema, type ProfileFormData } from "../schemas/schema";
 interface ProfileCardProps {
     firstName: string;
@@ -23,7 +24,7 @@ interface ProfileCardProps {
     gender?: string;
 }
 function Profile({firstName, lastName, email, profileImage, orders, wishlist, ratings, memberSince, phone, dateOfBirth, gender}: ProfileCardProps) {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm<ProfileFormData>({
+    const { register, handleSubmit, reset, control, formState: { errors } } = useForm<ProfileFormData>({
         resolver: zodResolver(profileSchema)
     });
     const onSubmit = (data: ProfileFormData) => {
@@ -96,8 +97,21 @@ function Profile({firstName, lastName, email, profileImage, orders, wishlist, ra
                             <div className="flex flex-col items-start justify-center w-full gap-[0.78rem]">
                             <label className="font-segoe text-[0.875rem] text-blackCustom font-semibold" >Phone</label>
                                 <div className="flex flex-row justify-start items-center w-full h-10 px-[0.81rem] border border-grayCustom bg-white rounded-xl" >
-                                    <input aria-label="Phone" {...register("phone")} type="text" placeholder={phone} className="w-full text-[1rem] font-segoe text-blackCustom placeholder:text-blackCustom focus:outline-none" />
-                                </div> 
+                                    <Controller
+                                        name="phone"
+                                        control={control}
+                                        render={({ field }) => (
+                                            <MaskedInput
+                                                mask="(11) 11111-1111"
+                                                aria-label="Phone"
+                                                placeholder={phone}
+                                                value={field.value}
+                                                onChange={(e) => field.onChange(e.target.value)}
+                                                className="w-full text-[1rem] font-segoe text-blackCustom placeholder:text-blackCustom focus:outline-none"
+                                            />
+                                        )}
+                                    />
+                                </div>
                                 {errors.phone && <span className="text-redCustom text-[0.75rem] font-segoe">{errors.phone.message}</span>}
                             </div>
                         </div>

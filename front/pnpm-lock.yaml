@@ -48,6 +48,9 @@ importers:
       '@types/react-dom':
         specifier: ^19.2.3
         version: 19.2.4(@types/react@19.2.18)
+      '@types/react-maskedinput':
+        specifier: ^4.0.10
+        version: 4.0.10
       '@vitejs/plugin-react':
         specifier: ^6.0.4
         version: 6.0.5(vite@8.2.1(@types/node@24.13.3)(jiti@2.7.0))
@@ -517,6 +520,9 @@ packages:
     resolution: {integrity: sha512-Bsc+QHgp+P/F02XDzNCY9jnZNCUuLki36KT7VKrTXXLdHf+vHMNZnW1rVu5DNW/rCK+fya3DATySbLM4yhtKUw==}
     peerDependencies:
       '@types/react': ^19.2.0
+
+  '@types/react-maskedinput@4.0.10':
+    resolution: {integrity: sha512-n6iBDJipBS+jUt0H7ZTlA+EJFneH2K3hnu/2ZJyjpVnmnoPg1rcEy3UH5CPsyOJT5OH1EhUbJfTwVjkY4j74iA==}
 
   '@types/react@19.2.18':
     resolution: {integrity: sha512-AnzbBERsrLKtk2XSfTbYRLjQPdy116Sty4q+T+Bp3IC4l6jNBvreVPAHmpq9qhXQM7CXZPjLVmGMw9sy+hxQ3w==}
@@ -1572,6 +1578,10 @@ snapshots:
       undici-types: 7.18.2
 
   '@types/react-dom@19.2.4(@types/react@19.2.18)':
+    dependencies:
+      '@types/react': 19.2.18
+
+  '@types/react-maskedinput@4.0.10':
     dependencies:
       '@types/react': 19.2.18
 
