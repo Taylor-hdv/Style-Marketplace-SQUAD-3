@@ -9,15 +9,16 @@ interface buttonProps {
     py: string;
     px:string;
     width: string;
+    type: "button" | "submit" | "reset";
     text?: string;
     textSize?: string;
     src?: string;
     src2?: string;
     hasBorder?: boolean;
 }
-function Button({ text, src, hasBorder, src2, backgroundColor, py, px, textSize, width }: buttonProps) {
+function Button({ text, src, hasBorder, src2, backgroundColor, py, px, textSize, width, type }: buttonProps) {
     return (
-        <button className={`flex flex-row items-center ${py} ${px} ${width} justify-center gap-4 rounded-[0.625rem] hover:bg-opacity-80 cursor-pointer  ${buttonBackgroundColor[backgroundColor]} ${hasBorder ? 'border border-grayCustom' : ''}`}>
+        <button type={type} className={`flex flex-row items-center ${py} ${px} ${width} justify-center gap-4 rounded-[0.625rem] hover:bg-opacity-80 cursor-pointer  ${buttonBackgroundColor[backgroundColor]} ${hasBorder ? 'border border-grayCustom' : ''}`}>
             {src && <img src={src} className="w-3 h-3" />}
             { text && <p className={` ${textSize} font-segoe font-semibold `}>{text}</p> }
             {src2 && <img src={src2} className="w-3 h-3" />}

@@ -1,9 +1,13 @@
-import { BrowserRouter, Routes } from 'react-router'
+import { BrowserRouter } from 'react-router'
+import SignIn from './pages/SignIn'
 import Header from './components/header&footer/Header'
 
 function App() {
   return(
-    <Header Notifications={3} />
+    <BrowserRouter>
+      <Header notifications={2}/>
+      <SignIn />
+    </BrowserRouter>
   )
 }
 

@@ -23,14 +23,14 @@ function CardProduct({ src, alt, title, price, quantity, tag, tagColor, rating, 
                 {rating && <div className="flex flex-row items-center justify-start gap-1">
                     <img src={starRating} alt="Star Rating" className="w-[0.8rem] h-[0.8rem]" />
                     <p className="text-blackCustom text-[0.875rem] font-segoe font-semibold">{rating}</p>
-                    <p className="text-[#6B7280] text-[0.875rem] font-segoe">({quantity})</p>
+                    <p className="text-grayCustom3 text-[0.875rem] font-segoe">({quantity})</p>
                 </div>}
                 <div className="flex flex-row items-center justify-start gap-2">
                     <p className="text-blackCustom text-[1.125rem] font-bold font-segoe">{price}</p>
-                    {oldPrice && <p className="text-[#6B7280] text-[0.875rem] font-segoe line-through">{oldPrice}</p>}
+                    {oldPrice && <p className="text-grayCustom3 text-[0.875rem] font-segoe line-through">{oldPrice}</p>}
                 </div>
                 <div className="w-fit absolute bottom-4 right-4">
-                <Button py="py-[0.47rem]" px="px-[0.81rem]" width="w-full" backgroundColor="whiteCustom" text="Add to Cart" textSize="text-[0.875rem]" hasBorder={true} />
+                <Button type="button" py="py-[0.47rem]" px="px-[0.81rem]" width="w-full" backgroundColor="whiteCustom" text="Add to Cart" textSize="text-[0.875rem]" hasBorder={true} />
                 </div>
             </div>
 
