@@ -142,7 +142,7 @@ function Profile({firstName, lastName, email, profileImage, orders, wishlist, ra
                         </div>
                     </form>
                 </section>
-                <div className="flex flex-col items-center justify-start w-full gap-6">
+                <div className="flex flex-col items-center justify-start w-full md:flex-row gap-6">
                     <div className="flex flex-col items-center justify-center w-full  w-max-89 h-35 py-6 bg-white rounded-xl border border-grayCustom shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
                         <img src={ordersIcon2} alt="Orders Icon" className="w-8 h-8 mb-2" />
                         <p className="text-blackCustom font-segoe text-[1.5rem] font-bold text-center">{orders}</p>
