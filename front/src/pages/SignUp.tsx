@@ -57,7 +57,7 @@ function SignUp() {
                     <div className="flex flex-row items-start justify-center w-full gap-4 mb-[0.34rem]">
                         <div className="flex flex-col items-start justify-center w-full gap-[0.78rem]">
                            <label className="font-segoe text-[0.875rem] text-blackCustom font-semibold" >First Name</label>
-                                <div className="flex flex-row justify-start items-center w-full px-3 py-3 border border-grayCustom bg-white relative gap-[0.8rem] rounded-xl" >
+                                <div className="flex flex-row justify-start items-center w-full px-3 py-3 border border-grayCustom bg-white gap-[0.8rem] rounded-xl" >
                                     <img src={personIcon} alt="" className="w-4 h-4" />
                                     <input aria-label="First Name" {...register("firstName")} type="text" placeholder="First Name" className="w-full text-[1rem] font-segoe text-grayCustom3 focus:outline-none" />
                                 </div>
@@ -65,7 +65,7 @@ function SignUp() {
                         </div>
                         <div className="flex flex-col items-start justify-center w-full gap-[0.78rem]">
                            <label className="font-segoe text-[0.875rem] text-blackCustom font-semibold" >Last Name</label>
-                                <div className="flex flex-row justify-start items-center w-full px-3 py-3 border border-grayCustom bg-white relative gap-[0.8rem] rounded-xl" >
+                                <div className="flex flex-row justify-start items-center w-full px-3 py-3 border border-grayCustom bg-white gap-[0.8rem] rounded-xl" >
                                     <input aria-label="Last Name" {...register("lastName")} type="text" placeholder="Last Name" className="w-full text-[1rem] font-segoe text-grayCustom3 focus:outline-none" />
                                 </div> 
                                 {errors.lastName && <span className="text-redCustom text-[0.75rem] font-segoe">{errors.lastName.message}</span>}
@@ -73,7 +73,7 @@ function SignUp() {
                     </div>
                     <div className="flex flex-col items-start justify-center w-full gap-[0.78rem] mb-[0.34rem]">
                         <label className="font-segoe text-[0.875rem] text-blackCustom font-semibold" >Email Adress</label>
-                            <div className="flex flex-row justify-start items-center w-full px-3 py-3 border border-grayCustom bg-white relative gap-[0.8rem] rounded-xl" >
+                            <div className="flex flex-row justify-start items-center w-full px-3 py-3 border border-grayCustom bg-white gap-[0.8rem] rounded-xl" >
                                 <img src={emailIcon} alt="" className="w-4 h-4" />
                                 <input aria-label="Email Adress" {...register("email")} type="email" placeholder="Enter your email" className="w-full text-[1rem] font-segoe text-grayCustom3 focus:outline-none" />
                             </div> 
