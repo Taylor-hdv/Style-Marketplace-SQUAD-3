@@ -2,6 +2,7 @@ import { Router } from "express";
 import { UserController } from "../controllers/UserController";
 import { ProductController } from "../controllers/productController";
 import { VariantController } from "../controllers/variantController";
+import { CategoryController } from "../controllers/categoryController";
 import { TelephoneController } from "../controllers/TelephoneController";
 const router = Router();
 
@@ -24,6 +25,13 @@ router.get("/variant/:variantId", VariantController.readVariant);
 router.get("/variants", VariantController.readAllVariants);
 router.put("/variant/:variantId", VariantController.updateVariant);
 router.delete("/variant/:variantId", VariantController.deleteVariant);
+
+router.post("/category", CategoryController.createCategory);
+router.get("/category/:categoryId", CategoryController.readCategory);
+router.get("/categories", CategoryController.readAllCategories);
+router.put("/category/:categoryId", CategoryController.updateCategory);
+router.delete("/category/:categoryId", CategoryController.deleteCategory);
+
 
 
 // Rotas do Telefone
