@@ -6,12 +6,11 @@ export class CategoryController {
 
     public static async createCategory(req: Request, resp: Response) {
         try {
-            const { name, quantity } = req.body;
+            const { name } = req.body;
 
             const createData = {
-                name,
-                quantity
-            };
+                name
+            }
 
             const createdCategory = await prisma.category.create({
                 data: createData
@@ -37,7 +36,11 @@ export class CategoryController {
                     id: String(categoryId)
                 },
                 include: {
-                    products: true
+                    productCategories: {
+                        include: {
+                            product: true
+                        }
+                    }
                 }
             });
 
@@ -61,7 +64,11 @@ export class CategoryController {
         try {
             const categories = await prisma.category.findMany({
                 include: {
-                    products: true
+                    productCategories: {
+                        include: {
+                            product: true
+                        }
+                    }
                 }
             });
 
@@ -76,11 +83,10 @@ export class CategoryController {
     public static async updateCategory(req: Request, resp: Response) {
         try {
             const { categoryId } = req.params;
-            const { name, quantity } = req.body;
+            const { name } = req.body;
 
             const updateData = {
-                ...(name !== undefined && { name }),
-                ...(quantity !== undefined && { quantity })
+                ...(name !== undefined && { name })
             };
 
             const updatedCategory = await prisma.category.update({
@@ -134,4 +140,131 @@ export class CategoryController {
             });
         }
     }
+
+    public static async addProductToCategory(req: Request, resp: Response) {
+    try {
+        const { categoryId, productId } = req.params;
+
+        const foundCategory = await prisma.category.findUnique({
+            where: {
+                id: String(categoryId)
+            }
+        });
+
+        if (!foundCategory) {
+            return resp.status(404).json({
+                message: "Categoria não encontrada"
+            });
+        }
+
+        const foundProduct = await prisma.product.findUnique({
+            where: {
+                id: String(productId)
+            }
+        });
+
+        if (!foundProduct) {
+            return resp.status(404).json({
+                message: "Produto não encontrado"
+            });
+        }
+
+        const existingAssociation = await prisma.productCategory.findUnique({
+            where: {
+                productId_categoryId: {
+                    productId: String(productId),
+                    categoryId: String(categoryId)
+                }
+            }
+        });
+
+        if (existingAssociation) {
+            return resp.status(409).json({
+                message: "Produto já está associado a esta categoria"
+            });
+        }
+
+        await prisma.$transaction([
+            prisma.productCategory.create({
+                data: {
+                    productId: String(productId),
+                    categoryId: String(categoryId)
+                }
+            }),
+
+            prisma.category.update({
+                where: {
+                    id: String(categoryId)
+                },
+                data: {
+                    quantity: {
+                        increment: 1
+                    }
+                }
+            })
+        ]);
+
+        return resp.status(200).json({
+            message: "Produto associado à categoria com sucesso"
+        });
+
+    } catch (error: any) {
+        return resp.status(500).json({
+            message: error.message
+        });
+    }
+    }
+
+    public static async removeProductFromCategory(req: Request, resp: Response) {
+    try {
+        const { categoryId, productId } = req.params;
+
+        const existingAssociation = await prisma.productCategory.findUnique({
+            where: {
+                productId_categoryId: {
+                    productId: String(productId),
+                    categoryId: String(categoryId)
+                }
+            }
+        });
+
+        if (!existingAssociation) {
+            return resp.status(404).json({
+                message: "Produto não está associado a esta categoria."
+            });
+        }
+
+        await prisma.$transaction([
+            prisma.productCategory.delete({
+                where: {
+                    productId_categoryId: {
+                        productId: String(productId),
+                        categoryId: String(categoryId)
+                    }
+                }
+            }),
+
+            prisma.category.update({
+                where: {
+                    id: String(categoryId)
+                },
+                data: {
+                    quantity: {
+                        decrement: 1
+                    }
+                }
+            })
+        ]);
+
+        return resp.status(200).json({
+            message: "Produto desassociado da categoria com sucesso."
+        });
+
+    } catch (error: any) {
+        return resp.status(500).json({
+            message: error.message
+        });
+    }
+}
+
 }
