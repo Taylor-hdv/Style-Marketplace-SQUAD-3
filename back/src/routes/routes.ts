@@ -32,6 +32,8 @@ router.get("/categories", CategoryController.readAllCategories);
 router.put("/category/:categoryId", CategoryController.updateCategory);
 router.delete("/category/:categoryId", CategoryController.deleteCategory);
 
+router.post("/category/:categoryId/product/:productId", CategoryController.addProductToCategory);
+router.delete("/category/:categoryId/product/:productId", CategoryController.removeProductFromCategory);
 
 
 // Rotas do Telefone
