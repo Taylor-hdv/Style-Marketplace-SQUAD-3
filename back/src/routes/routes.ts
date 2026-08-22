@@ -3,14 +3,16 @@ import { UserController } from "../controllers/UserController";
 import { ProductController } from "../controllers/productController";
 import { VariantController } from "../controllers/variantController";
 import { TelephoneController } from "../controllers/TelephoneController";
+import {validate} from "../middlewares/Validate"
+import {createUserSchema,updateUserSchema,loginSchema} from "../schemas/UserSchema"
 const router = Router();
 
 //Rotas do usuario 
-router.post("/login", UserController.login);
-router.post("/user", UserController.createUser);
+router.post("/login", validate(loginSchema),UserController.login);
+router.post("/user", validate(createUserSchema), UserController.createUser);
 router.get("/user/:userId",  UserController.readUser);
 router.get("/users",  UserController.readAllUsers);
-router.put("/user/:userId",  UserController.updateUser);
+router.put("/user/:userId", validate(updateUserSchema),UserController.updateUser);
 router.delete("/user/:userId",  UserController.deleteUser);
 
 router.post("/product", ProductController.createProduct);
