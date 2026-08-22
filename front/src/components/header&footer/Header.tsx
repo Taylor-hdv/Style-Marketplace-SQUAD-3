@@ -1,3 +1,4 @@
+import { Link } from "react-router"
 import logo from "../../assets/logo/logo.svg"
 import search from "../../assets/header/search.svg";
 import heart from "../../assets/header/heart.svg";
@@ -33,9 +34,9 @@ function Header ({ notifications }: headerProps) {
                     <input placeholder="Search for products..." className="bg-transparent border-none focus:outline-none text-grayCustom3 text-[0.875rem] font-segoe"></input>
                 </div>
                 <div className="flex flex-row items-center justify-center">
-                    <img src={search2} alt="Search" className="w-10 h-10" />
+                    <img src={search2} alt="Search" className="w-10 h-10 md:hidden" />
                     <img src={heart} alt="Favorites" className="w-10 h-10" />
-                    <img src={profileIcon} alt="Profile" className="w-10 h-10" />
+                    <Link to="/profile"><img src={profileIcon} alt="Profile" className="w-10 h-10" /></Link>
                     <div className="relative w-10 h-10">
                         <img src={bag} alt="Itens" className="w-10 h-10" />
                         {notifications > 0 && (

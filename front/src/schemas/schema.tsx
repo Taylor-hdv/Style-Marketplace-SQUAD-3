@@ -22,8 +22,8 @@ export const profileSchema = z.object({
     lastName: z.string().trim().min(1, {message: "O sobrenome deve ser válido"}).optional().or(z.literal("")).transform((v) => v || undefined),
     email: z.email().trim().optional().or(z.literal("")).transform((v) => v || undefined),
     phone: z.string().trim().min(1, {message: "O telefone deve ser válido"}).optional().or(z.literal("")).transform((v) => v || undefined),
-    dateOfBirth: z.string().trim().optional().or(z.literal("")).transform((v) => v || undefined),
-    gender: z.enum(["Male", "Female", "Non Binary", "Other"], {message: "O gênero deve ser válido"}).optional().or(z.literal("")).transform((v) => v || undefined),
+    birthDate: z.string().trim().optional().or(z.literal("")).transform((v) => v || undefined),
+    gender: z.enum(["MALE", "FEMALE", "OTHER"], {message: "O gênero deve ser válido"}).optional().or(z.literal("")).transform((v) => v || undefined),
 });
 export type SignInFormData = z.infer<typeof SignInSchema>;
 export type ProfileFormData = z.input<typeof profileSchema>;

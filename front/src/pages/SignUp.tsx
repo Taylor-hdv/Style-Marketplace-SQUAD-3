@@ -24,7 +24,7 @@ function SignUp() {
   
   const onSubmit = (data: SignUpFormData) => {
     console.log(data);
-    navigate("/home");
+    navigate("/");
   };
   return (
         <section className="flex flex-col items-center justify-center w-full h-full py-12 lg:py-32 md:w-md mx-auto px-4 gap-2 bg-[linear-gradient(135deg,rgba(243,244,246,0.30)_0%,rgba(243,244,246,0.10)_100%)]">

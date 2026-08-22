@@ -10,7 +10,9 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import MaskedInput from "react-maskedinput";
 import { profileSchema, type ProfileFormData } from "../schemas/schema";
+import API from "../API";
 interface ProfileCardProps {
+    userId: string;
     firstName: string;
     lastName: string;
     email: string;
@@ -23,13 +25,25 @@ interface ProfileCardProps {
     dateOfBirth?: string;
     gender?: string;
 }
-function Profile({firstName, lastName, email, profileImage, orders, wishlist, ratings, memberSince, phone, dateOfBirth, gender}: ProfileCardProps) {
+function Profile({firstName, lastName, email, profileImage, orders, wishlist, ratings, memberSince, phone, dateOfBirth, gender, userId}: ProfileCardProps) {
     const { register, handleSubmit, reset, control, formState: { errors } } = useForm<ProfileFormData>({
         resolver: zodResolver(profileSchema)
     });
     const onSubmit = (data: ProfileFormData) => {
         console.log(data);
+        updateUser(data);
     };
+    const updateUser = async (data: ProfileFormData) => {
+        try {
+            const response = await API.put(`/user/${userId}`, data);
+            console.log(response.data);
+            alert("Perfil atualizado com sucesso!");
+        } catch (error) {
+            console.error("Error updating user profile:", error);
+            alert("Erro ao atualizar o perfil.");
+        }
+    };
+
     return (
         <div className="w-full h-full px-0 xl:px-65">
             <div className="flex flex-col items-start justify-center gap-2 px-4 py-8 bg-white">
@@ -119,18 +133,17 @@ function Profile({firstName, lastName, email, profileImage, orders, wishlist, ra
                             <div className="flex flex-col items-start justify-center w-full gap-[0.78rem]">
                             <label className="font-segoe text-[0.875rem] text-blackCustom font-semibold" >Date of Birth</label>
                                 <div className="flex flex-row justify-start items-center w-full h-10 px-[0.81rem] border border-grayCustom bg-white rounded-xl" >
-                                    <input aria-label="Date of Birth" {...register("dateOfBirth")} type="date" placeholder={dateOfBirth} className="w-full text-[1rem] font-segoe text-blackCustom placeholder:text-blackCustom focus:outline-none" />
+                                    <input aria-label="Date of Birth" {...register("birthDate")} type="date" placeholder={dateOfBirth} className="w-full text-[1rem] font-segoe text-blackCustom placeholder:text-blackCustom focus:outline-none" />
                                 </div> 
-                                {errors.dateOfBirth && <span className="text-redCustom text-[0.75rem] font-segoe">{errors.dateOfBirth.message}</span>}
+                                {errors.birthDate && <span className="text-redCustom text-[0.75rem] font-segoe">{errors.birthDate.message}</span>}
                             </div>
                             <div className="flex flex-col items-start justify-center w-full gap-[0.78rem]">
                             <label className="font-segoe text-[0.875rem] text-blackCustom font-semibold" >Gender</label>
                                 <div className="flex flex-row justify-start items-center w-full h-10 px-[0.81rem] border border-grayCustom bg-white rounded-xl" >
                                     <select aria-label="Gender" {...register("gender")} defaultValue={gender} className="w-full text-[1rem] font-segoe text-blackCustom focus:outline-none">
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Non Binary">Non Binary</option>
-                                        <option value="Other">Other</option>
+                                        <option value="MALE">Male</option>
+                                        <option value="FEMALE">Female</option>
+                                        <option value="OTHER">Other</option>
                                     </select>
                                 </div> 
                                 {errors.gender && <span className="text-redCustom text-[0.75rem] font-segoe">{errors.gender.message}</span>}
