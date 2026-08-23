@@ -86,19 +86,25 @@ export class TelephoneController{
         try{
             const {userId} = req.params
             const {DDD,phoneNumber} = req.body
+
             if(!userId){
                 return resp.status(400).json({ error: "O ID do usuário é obrigatório"});
             }
-            let updateData: Prisma.TelephoneUpdateInput = {
-                DDD,
-                phoneNumber,
-            };
 
-            const updatedTelephone= await prisma.telephone.update({
+            const updatedTelephone= await prisma.telephone.upsert({
                 where:{
                     userId:String(userId)
                 },
-                data:updateData,
+                update:{
+                    DDD,
+                    phoneNumber,
+                    userId:String(userId),
+                },
+                create:{
+                    DDD,
+                    phoneNumber,
+                    userId:String(userId),
+                }
             });
             return resp.status(200).json({
             message: "Telefone atualizado com sucesso",
