@@ -6,15 +6,17 @@ import { CategoryController } from "../controllers/categoryController";
 import { TelephoneController } from "../controllers/TelephoneController";
 import {validate} from "../middlewares/Validate"
 import {createUserSchema,updateUserSchema,loginSchema} from "../schemas/UserSchema"
+import { AuthMiddleware } from "../middlewares/authMiddleware";
+
 const router = Router();
 
 //Rotas do usuario 
 router.post("/login", validate(loginSchema),UserController.login);
 router.post("/user", validate(createUserSchema), UserController.createUser);
-router.get("/user/:userId",  UserController.readUser);
-router.get("/users",  UserController.readAllUsers);
-router.put("/user/:userId", validate(updateUserSchema),UserController.updateUser);
-router.delete("/user/:userId",  UserController.deleteUser);
+router.get("/user/:userId", AuthMiddleware.execute, UserController.readUser);
+router.get("/users", UserController.readAllUsers);
+router.put("/user/:userId",  AuthMiddleware.execute,validate(updateUserSchema),UserController.updateUser);
+router.delete("/user/:userId", AuthMiddleware.execute, UserController.deleteUser);
 
 router.post("/product", ProductController.createProduct);
 router.get("/product/:productId", ProductController.readProduct);

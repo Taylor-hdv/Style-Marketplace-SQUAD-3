@@ -54,8 +54,8 @@ model User {
   memberSince       DateTime   @default(now())
   emailNotification Boolean    @default(true)
   phone             Telephone?
-  //hash              String
-  //salt              String
+  hash              String
+  salt              String
   cart              Cart?
   order             Order[]
 }
