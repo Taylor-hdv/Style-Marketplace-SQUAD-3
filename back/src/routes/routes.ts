@@ -4,15 +4,17 @@ import { ProductController } from "../controllers/productController";
 import { VariantController } from "../controllers/variantController";
 import { CategoryController } from "../controllers/categoryController";
 import { TelephoneController } from "../controllers/TelephoneController";
+import { AuthMiddleware } from "../middlewares/authMiddleware";
+
 const router = Router();
 
 //Rotas do usuario 
 router.post("/login", UserController.login);
 router.post("/user", UserController.createUser);
-router.get("/user/:userId",  UserController.readUser);
-router.get("/users",  UserController.readAllUsers);
-router.put("/user/:userId",  UserController.updateUser);
-router.delete("/user/:userId",  UserController.deleteUser);
+router.get("/user/:userId", AuthMiddleware.execute, UserController.readUser);
+router.get("/users",  AuthMiddleware.execute, UserController.readAllUsers);
+router.put("/user/:userId",  AuthMiddleware.execute, UserController.updateUser);
+router.delete("/user/:userId", AuthMiddleware.execute, UserController.deleteUser);
 
 router.post("/product", ProductController.createProduct);
 router.get("/product/:productId", ProductController.readProduct);
