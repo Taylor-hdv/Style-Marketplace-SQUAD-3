@@ -12,7 +12,7 @@ const router = Router();
 router.post("/login", UserController.login);
 router.post("/user", UserController.createUser);
 router.get("/user/:userId", AuthMiddleware.execute, UserController.readUser);
-router.get("/users",  AuthMiddleware.execute, UserController.readAllUsers);
+router.get("/users", UserController.readAllUsers);
 router.put("/user/:userId",  AuthMiddleware.execute, UserController.updateUser);
 router.delete("/user/:userId", AuthMiddleware.execute, UserController.deleteUser);
 

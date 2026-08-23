@@ -158,7 +158,7 @@ export class UserController{
             }
             if(auth.checkPassword(password,user.hash,user.salt)){
                 const token = auth.generateJWT(Number(user.id));
-                return resp.status(200).json({token:token})
+                return resp.status(200).json({token:token, userId: user.id})
             }
             
             return resp.status(401).json({message:"Senha ou email incorretos"});
