@@ -1,11 +1,8 @@
 import Button from "../components/button/Button";
 import logo from "../assets/logo/logo.svg";
-import checkboxDefault from "../assets/signUp/checkboxDefault.svg";
-import checkboxChecked from "../assets/signUp/checkboxChecked.svg";
 import visible from "../assets/signUp/visible.svg";
 import nonVisible from "../assets/signUp/nonVisible.svg";
 import passwordIcon from "../assets/signUp/passwordIcon.svg";
-import personIcon from "../assets/signUp/personIcon.svg";
 import emailIcon from "../assets/signUp/emailIcon.svg";
 import googleIcon from "../assets/signUp/googleIcon.svg";
 import facebookIcon from "../assets/signUp/facebookIcon.svg";
@@ -56,7 +53,7 @@ function SignUp() {
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-start justify-center w-full gap-4">
                     <div className="flex flex-col items-start justify-center w-full gap-[0.78rem] mb-[0.34rem]">
                         <label className="font-segoe text-[0.875rem] text-blackCustom font-semibold" >Email Adress</label>
-                            <div className="flex flex-row justify-start items-center w-full px-3 py-3 border border-grayCustom bg-white relative gap-[0.8rem] rounded-xl" >
+                            <div className="flex flex-row justify-start items-center w-full px-3 py-3 border border-grayCustom bg-white gap-[0.8rem] rounded-xl" >
                                 <img src={emailIcon} alt="" className="w-4 h-4" />
                                 <input aria-label="Email Adress" {...register("email")} type="email" placeholder="Enter your email" className="w-full text-[1rem] font-segoe text-grayCustom3 focus:outline-none" />
                             </div> 

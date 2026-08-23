@@ -46,7 +46,16 @@ export class ProductController {
                     id: String(productId)
                 },
                 include: {
-                    variants: true
+                    variants: true,
+                    productCategories:{
+                        include:{
+                            category:{
+                                select:{
+                                    name:true
+                                }
+                            }
+                        }
+                    }
                 }
             });
 
@@ -68,7 +77,18 @@ export class ProductController {
         try {
             const products = await prisma.product.findMany({
                 include: {
-                    variants: true
+                    variants: true,
+                    productCategories:{
+                        include:{
+                            category:{
+                                select: {
+                                    name:true
+                                }
+                            }
+                        }
+                    }
+                       
+                    
                 }
             });
             return resp.status(200).json(products);
