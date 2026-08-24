@@ -154,7 +154,7 @@ function Profile({ profileImage, wishlist, ratings }: ProfileCardProps) {
           <div className="flex flex-col items-start justify-center mb-6 gap-0">
             <h2 className="text-blackCustom font-segoe text-[1.875rem] font-bold">
               {user?.firstName}
-              {user?.lastName}
+              {' ' + user?.lastName}
             </h2>
             <p className="text-grayCustom3 text-[1rem] font-segoe mb-2">
               {user?.email}
