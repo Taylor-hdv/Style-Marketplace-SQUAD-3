@@ -47,6 +47,12 @@ export class UserController{
             const foundUser = await prisma.user.findUnique({
                 where:{ 
                     id:String(userId)
+                }, include: {
+                    _count: {
+                        select: {
+                            order: true
+                        }
+                    }
                 }
             })
             return resp.status(200).json(foundUser);
@@ -82,7 +88,6 @@ export class UserController{
                 lastName,
                 email,
                 gender,
-                birthDate,
             };
 
             const updatedUser = await prisma.user.update({
