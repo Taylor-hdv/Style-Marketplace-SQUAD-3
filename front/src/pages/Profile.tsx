@@ -6,7 +6,7 @@ import starIcon from "../assets/profile/starIcon.svg";
 import cancelIcon from "../assets/profile/cancelIcon.svg";
 import profileIcon from "../assets/profile/profileIcon.svg";
 import Button from "../components/button/Button";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import MaskedInput from "react-maskedinput";
@@ -19,7 +19,19 @@ interface ProfileCardProps {
   wishlist: number;
   ratings: number;
 }
+interface UserData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  gender: string;
+  birthDate: string;
+  memberSince: string;
+  orderCount: number;
+  ddd: string;
+  phoneNumber: string;
+}
 function Profile({ profileImage, wishlist, ratings }: ProfileCardProps) {
+  const [user, setUser] = useState<UserData | null>(null);
   const {
     register,
     handleSubmit,
@@ -36,73 +48,77 @@ function Profile({ profileImage, wishlist, ratings }: ProfileCardProps) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const controller = new AbortController();
-
-    async function buscarDados() {
-      const token = sessionStorage.getItem("token");
-      const userId = sessionStorage.getItem("userId");
-      try {
-        const response = await API.get(`/user/${userId}`, {
-          signal: controller.signal,
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        const responseTelephone = await API.get(`/telephone/${userId}`, {
-          signal: controller.signal,
-        });
-        const {
-          firstName,
-          lastName,
-          email,
-          memberSince,
-          gender,
-          birthDate,
-          _count: { order },
-        } = response.data;
-        const memberSinceAno = memberSince
-          ? new Date(memberSince).getFullYear()
-          : "";
-        const birthDateFormatado = birthDate
-          ? new Date(birthDate).toISOString().split("T")[0]
-          : "";
-        if (responseTelephone.data) {
-          const { DDD, phoneNumber } = responseTelephone.data;
-          localStorage.setItem("DDD", DDD);
-          localStorage.setItem("phoneNumber", phoneNumber);
-        } else {
-          localStorage.setItem("DDD", "");
-          localStorage.setItem("phoneNumber", "");
-        }
-        localStorage.setItem("firstName", firstName);
-        localStorage.setItem("lastName", lastName);
-        localStorage.setItem("email", email);
-        localStorage.setItem("birthDate", birthDateFormatado);
-        localStorage.setItem("memberSince", String(memberSinceAno));
-        localStorage.setItem("gender", gender);
-        localStorage.setItem("orderCount", order);
-      } catch (error) {
-        const foiCancelado = axios.isCancel(error);
-        if (foiCancelado) {
-          return;
-        }
-
-        const naoAutorizado =
-          axios.isAxiosError(error) && error.response?.status === 401;
-        if (naoAutorizado) {
-          navigate("/sign-in");
-          return;
-        }
-
-        console.error("Erro ao buscar o perfil do usuário:", error);
-      }
-    }
     buscarDados();
+  }, []);
 
-    return () => {
-      controller.abort();
-    };
-  }, [navigate]);
+  async function buscarDados() {
+    const token = sessionStorage.getItem("token");
+    const userId = sessionStorage.getItem("userId");
+    try {
+      const response = await API.get(`/user/${userId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const responseTelephone = await API.get(`/telephone/${userId}`);
+      const {
+        firstName,
+        lastName,
+        email,
+        memberSince,
+        gender,
+        birthDate,
+        _count: { order },
+      } = response.data;
+      const memberSinceAno = memberSince
+        ? new Date(memberSince).getFullYear()
+        : "";
+      const birthDateFormatado = birthDate
+        ? new Date(birthDate).toISOString().split("T")[0]
+        : "";
+      const ddd = responseTelephone.data ? responseTelephone.data.DDD : "";
+      const phoneNumber = responseTelephone.data
+        ? responseTelephone.data.phoneNumber
+        : "";
+      const phoneFormatado =
+        ddd && phoneNumber
+          ? `(${ddd}) ${phoneNumber.slice(0, 5)}-${phoneNumber.slice(5)}`
+          : "";
+      setUser({
+        firstName: firstName || "",
+        lastName: lastName || "",
+        email: email || "",
+        memberSince: String(memberSinceAno) || "",
+        gender: gender || "",
+        birthDate: birthDateFormatado || "",
+        orderCount: order || 0,
+        ddd: ddd || "",
+        phoneNumber: phoneNumber || "",
+      });
+      reset({
+        firstName,
+        lastName,
+        email,
+        gender,
+        birthDate: birthDateFormatado,
+        phone: phoneFormatado,
+      });
+    } catch (error) {
+      const foiCancelado = axios.isCancel(error);
+      if (foiCancelado) {
+        return;
+      }
+
+      const naoAutorizado =
+        axios.isAxiosError(error) && error.response?.status === 401;
+      if (naoAutorizado) {
+        navigate("/sign-in");
+        return;
+      }
+
+      console.error("Erro ao buscar o perfil do usuário:", error);
+    }
+  }
 
   const updateUser = async (data: ProfileFormData) => {
     try {
@@ -122,6 +138,7 @@ function Profile({ profileImage, wishlist, ratings }: ProfileCardProps) {
           phoneNumber: phoneNumber,
         });
       }
+      await buscarDados();
     } catch (error) {
       console.error("Erro ao atualizar o perfil do usuário:", error);
     }
@@ -136,21 +153,21 @@ function Profile({ profileImage, wishlist, ratings }: ProfileCardProps) {
           </div>
           <div className="flex flex-col items-start justify-center mb-6 gap-0">
             <h2 className="text-blackCustom font-segoe text-[1.875rem] font-bold">
-              {localStorage.getItem("firstName")}{" "}
-              {localStorage.getItem("lastName")}
+              {user?.firstName}
+              {user?.lastName}
             </h2>
             <p className="text-grayCustom3 text-[1rem] font-segoe mb-2">
-              {localStorage.getItem("email")}
+              {user?.email}
             </p>
             <div className="flex flex-row items-center justify-start gap-4">
               <div className="items-center justify-center w-fit px-[0.69rem] py-[0.19rem] bg-[#F3F4F6] rounded-[624.9375rem]">
                 <p className="text-blackCustom font-segoe text-[0.75rem] font-semibold">
-                  {localStorage.getItem("orderCount") || 0} Orders
+                  {user?.orderCount} Orders
                 </p>
               </div>
               <div className="items-center justify-center w-fit px-[0.69rem] py-[0.19rem] bg-[#F3F4F6] rounded-[624.9375rem]">
                 <p className="text-blackCustom font-segoe text-[0.75rem] font-semibold">
-                  member since {localStorage.getItem("memberSince")}
+                  member since {user?.memberSince}
                 </p>
               </div>
             </div>
@@ -220,7 +237,7 @@ function Profile({ profileImage, wishlist, ratings }: ProfileCardProps) {
                     aria-label="First Name"
                     {...register("firstName")}
                     type="text"
-                    placeholder={localStorage.getItem("firstName") || ""}
+                    placeholder={user?.firstName}
                     className="w-full text-[1rem] font-segoe text-blackCustom placeholder:text-blackCustom focus:outline-none"
                   />
                 </div>
@@ -239,7 +256,7 @@ function Profile({ profileImage, wishlist, ratings }: ProfileCardProps) {
                     aria-label="Last Name"
                     {...register("lastName")}
                     type="text"
-                    placeholder={localStorage.getItem("lastName") || ""}
+                    placeholder={user?.lastName}
                     className="w-full text-[1rem] font-segoe text-blackCustom placeholder:text-blackCustom focus:outline-none"
                   />
                 </div>
@@ -260,7 +277,7 @@ function Profile({ profileImage, wishlist, ratings }: ProfileCardProps) {
                     aria-label="Email"
                     {...register("email")}
                     type="email"
-                    placeholder={localStorage.getItem("email") || ""}
+                    placeholder={user?.email}
                     className="w-full text-[1rem] font-segoe text-blackCustom placeholder:text-blackCustom focus:outline-none"
                   />
                 </div>
@@ -282,7 +299,11 @@ function Profile({ profileImage, wishlist, ratings }: ProfileCardProps) {
                       <MaskedInput
                         mask="(11) 11111-1111"
                         aria-label="Phone"
-                        placeholder={`(${localStorage.getItem("DDD") || ""}) ${localStorage.getItem("phoneNumber")?.substring(0, 5) || ""}-${localStorage.getItem("phoneNumber")?.substring(5) || ""}`}
+                        placeholder={
+                          user?.ddd && user?.phoneNumber
+                            ? `(${user.ddd}) ${user.phoneNumber.slice(0, 5)}-${user.phoneNumber.slice(5)}`
+                            : ""
+                        }
                         value={field.value}
                         onChange={(e) => field.onChange(e.target.value)}
                         className="w-full text-[1rem] font-segoe text-blackCustom placeholder:text-blackCustom focus:outline-none"
@@ -307,7 +328,7 @@ function Profile({ profileImage, wishlist, ratings }: ProfileCardProps) {
                     aria-label="Date of Birth"
                     {...register("birthDate")}
                     type="date"
-                    defaultValue={localStorage.getItem("birthDate") || ""}
+                    defaultValue={user?.birthDate}
                     className="w-full text-[1rem] font-segoe text-blackCustom placeholder:text-blackCustom focus:outline-none"
                   />
                 </div>
@@ -325,7 +346,7 @@ function Profile({ profileImage, wishlist, ratings }: ProfileCardProps) {
                   <select
                     aria-label="Gender"
                     {...register("gender")}
-                    defaultValue={localStorage.getItem("gender") || ""}
+                    defaultValue={user?.gender}
                     className="w-full text-[1rem] font-segoe text-blackCustom focus:outline-none"
                   >
                     <option value="MALE">Male</option>
@@ -368,7 +389,7 @@ function Profile({ profileImage, wishlist, ratings }: ProfileCardProps) {
           <div className="flex flex-col items-center justify-center w-full  w-max-89 h-35 py-6 bg-white rounded-xl border border-grayCustom shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
             <img src={ordersIcon2} alt="Orders Icon" className="w-8 h-8 mb-2" />
             <p className="text-blackCustom font-segoe text-[1.5rem] font-bold text-center">
-              {localStorage.getItem("orderCount") || 0}
+              {user?.orderCount}
             </p>
             <p className="text-grayCustom3 font-segoe text-[0.875rem]">
               Total orders

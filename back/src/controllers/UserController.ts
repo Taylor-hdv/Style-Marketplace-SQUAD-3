@@ -89,6 +89,9 @@ export class UserController{
                 email,
                 gender,
             };
+            if (birthDate) {
+                updateData.birthDate = new Date(birthDate);
+            }
 
             const updatedUser = await prisma.user.update({
                 where:{ 
