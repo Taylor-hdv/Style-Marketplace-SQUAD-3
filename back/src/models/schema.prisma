@@ -50,8 +50,8 @@ model User {
   newArrivals       Boolean    @default(false)
   gender            Gender?
   salesAlerts       Boolean    @default(false)
-  birthDate         DateTime?
-  memberSince       DateTime   @default(now())
+  birthDate         DateTime?                   @db.Date
+  memberSince       DateTime   @default(now())  @db.Date
   emailNotification Boolean    @default(true)
   phone             Telephone?
   hash              String

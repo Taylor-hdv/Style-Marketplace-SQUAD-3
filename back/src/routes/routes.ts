@@ -41,7 +41,7 @@ router.delete("/category/:categoryId/product/:productId", CategoryController.rem
 
 
 // Rotas do Telefone
-router.post("/telephone", TelephoneController.createTelephone);
+router.put("/telephone", TelephoneController.updateTelephone);
 router.get("/telephone", TelephoneController.readAllTelephones); 
 router.get("/telephone/:userId", TelephoneController.readTelephone); 
 router.put("/telephone/:userId", TelephoneController.updateTelephone); 
