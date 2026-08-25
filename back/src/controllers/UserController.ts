@@ -16,6 +16,9 @@ export class UserController{
                 firstName,
                 lastName,
                 email,
+                cart: {
+                    create:{}
+                },
                 ...(smsNotification !== undefined && { smsNotification }),
                 ...(marketingEmails !== undefined && { marketingEmails }),
                 ...(orderUpdates !== undefined && { orderUpdates }),

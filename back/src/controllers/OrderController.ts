@@ -3,26 +3,47 @@ import { Prisma } from "../generated/prisma/client";
 import { prisma } from "../config/prisma";
 
 export class OrderController {
-
     public static async createOrder(req: Request, resp: Response) {
         try {
-            const { userId, totalQuantity, status, adress, totalPrice, shipping, paymentMethod } = req.body;
+            const { userId, adress, paymentMethod } = req.body;
 
-            if (!userId || totalQuantity === undefined || !adress || totalPrice === undefined || shipping === undefined) {
-                return resp.status(400).json({ message: "userId, totalQuantity, adress, totalPrice e shipping são obrigatórios" });
+            if (!userId || !adress) {
+                return resp.status(400).json({ message: "userId e adress são obrigatórios." });
+            }
+
+            const userCart = await prisma.cart.findUnique({
+                where: { 
+                    userId: String(userId) 
+                },
+                include: {
+                    items: {
+                        include: {
+                            variant: true
+                        }
+                    }
+                }
+            });
+
+            if (!userCart) {
+                return resp.status(404).json({ message: "Carrinho não encontrado" });
             }
 
             const createData: Prisma.OrderCreateInput = {
                 user: { connect: { id: String(userId) } },
-                totalQuantity: totalQuantity,
+                totalQuantity: userCart.totalQuantity,
+                totalPrice: userCart.totalPrice,
+                shipping: userCart.shipping,
                 adress: adress,
-                totalPrice: totalPrice,
-                shipping: shipping
+                items: {
+                    create: userCart.items.map((item) => {
+                        return {
+                            itemQuantity: item.itemQuantity,
+                            itemPrice: item.variant.price,
+                            variant: { connect: { id: item.variantId } }
+                        };
+                    })
+                }
             };
-
-            if (status !== undefined) createData.status = status;
-            if (paymentMethod !== undefined) createData.paymentMethod = paymentMethod;
-
             const createdOrder = await prisma.order.create({ data: createData });
             return resp.status(201).json({ message: "Pedido criado com sucesso", order: createdOrder });
 
