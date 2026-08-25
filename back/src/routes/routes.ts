@@ -7,6 +7,7 @@ import { TelephoneController } from "../controllers/TelephoneController";
 import {validate} from "../middlewares/Validate"
 import {createUserSchema,updateUserSchema,loginSchema} from "../schemas/UserSchema"
 import { AuthMiddleware } from "../middlewares/authMiddleware";
+import { ReviewController } from "../controllers/reviewController";
 
 const router = Router();
 
@@ -38,6 +39,12 @@ router.delete("/category/:categoryId", CategoryController.deleteCategory);
 
 router.post("/category/:categoryId/product/:productId", CategoryController.addProductToCategory);
 router.delete("/category/:categoryId/product/:productId", CategoryController.removeProductFromCategory);
+
+router.post("/review", ReviewController.createReview);
+router.get("/review/:reviewId", ReviewController.readReview);
+router.get("/reviews", ReviewController.readAllReviews);
+router.put("/review/:reviewId", ReviewController.updateReview);
+router.delete("/review/:reviewId", ReviewController.deleteReview);
 
 
 // Rotas do Telefone

@@ -21,6 +21,7 @@ model Product {
   variants          Variant[]
   specification     String
   productCategories ProductCategory[]
+  reviews           Review[]
 }
 
 model Variant {
@@ -50,14 +51,15 @@ model User {
   newArrivals       Boolean    @default(false)
   gender            Gender?
   salesAlerts       Boolean    @default(false)
-  birthDate         DateTime?                   @db.Date
-  memberSince       DateTime   @default(now())  @db.Date
+  birthDate         DateTime?  @db.Date
+  memberSince       DateTime   @default(now()) @db.Date
   emailNotification Boolean    @default(true)
   phone             Telephone?
   hash              String
   salt              String
   cart              Cart?
   order             Order[]
+  reviews           Review[]
 }
 
 model Cart {
@@ -121,4 +123,15 @@ model ProductCategory {
   category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 
   @@id([productId, categoryId])
+}
+
+model Review {
+  id        String @id @default(cuid())
+  rating    Int
+  text      String
+  userId    String
+  productId String
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 }
