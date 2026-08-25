@@ -34,11 +34,11 @@ export class OrderController {
                 totalPrice: userCart.totalPrice,
                 shipping: userCart.shipping,
                 adress: adress,
-                items: {
+                orderVariants: {
                     create: userCart.items.map((item) => {
                         return {
                             itemQuantity: item.itemQuantity,
-                            itemPrice: item.variant.price,
+                            itemPrice: Number(item.variant.price),
                             variant: { connect: { id: item.variantId } }
                         };
                     })

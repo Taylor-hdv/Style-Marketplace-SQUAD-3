@@ -34,7 +34,7 @@ export class CartController {
         const foundCart = await prisma.cart.findUnique({
             where: { id: String(cartId) },
             include: {
-                cartVariants: {
+                items: {
                     include: {
                         variant: {
                             include: {
