@@ -62,6 +62,7 @@ router.get("/cart/:cartId", CartController.readCart);
 router.get("/carts", CartController.readAllCarts);
 router.put("/cart/:cartId", CartController.updateCart);
 router.delete("/cart/:cartId", CartController.deleteCart);
+router.post("/cart/:cartId/add", CartController.addVariantToCart);
 
 router.post("/order", OrderController.createOrder);
 router.get("/order/:orderId", OrderController.readOrder);
