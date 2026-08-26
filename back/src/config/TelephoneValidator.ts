@@ -1,6 +1,6 @@
 import z from "zod";
 
-const telephone = z.object({
+export const telephoneSchema = z.object({
 
     DDD: z.string().regex(/^\d+$/, "DDD deve conter apenas números"),
     phoneNumber: z
@@ -8,3 +8,4 @@ const telephone = z.object({
     .min(9)
     .regex(/^\d+$/, "Telefone deve conter apenas números"),
 });
+

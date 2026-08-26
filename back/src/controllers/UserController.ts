@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { Prisma } from "../generated/prisma/client";
 import { prisma } from "../config/prisma";
+import auth from "../config/auth"
 
 
 
@@ -8,9 +9,12 @@ export class UserController{
 
     public static async createUser(req:Request, resp:Response){
         try{
-
+            console.log("CORPO QUE CHEGOU:", req.body);
+            
             const {firstName,lastName,email,smsNotification,marketingEmails,orderUpdates,
-                newArrivals,emailNotification,salesAlerts} = req.body
+                newArrivals,emailNotification,salesAlerts,password} = req.body
+
+            const{hash,salt} = auth.generatePassword(password)
 
             const createData = {
                 firstName,
@@ -22,6 +26,8 @@ export class UserController{
                 ...(newArrivals !== undefined && { newArrivals }),
                 ...(emailNotification !== undefined && { emailNotification }),
                 ...(salesAlerts !== undefined && { salesAlerts }),
+                hash,
+                salt,
             }
 
             const createdUser = await prisma.user.create({data:createData})
@@ -41,6 +47,12 @@ export class UserController{
             const foundUser = await prisma.user.findUnique({
                 where:{ 
                     id:String(userId)
+                }, include: {
+                    _count: {
+                        select: {
+                            order: true
+                        }
+                    }
                 }
             })
             return resp.status(200).json(foundUser);
@@ -76,8 +88,10 @@ export class UserController{
                 lastName,
                 email,
                 gender,
-                birthDate,
             };
+            if (birthDate) {
+                updateData.birthDate = new Date(birthDate);
+            }
 
             const updatedUser = await prisma.user.update({
                 where:{ 
@@ -142,13 +156,17 @@ export class UserController{
 
         try{
 
-            const {email} = req.body
+            const {email,password} = req.body
             const user = await prisma.user.findUnique({
                 where: {email: email} 
             });
 
             if(!user){
                 return resp.status(404).json({ message: "Usuário não encontrado" });
+            }
+            if(auth.checkPassword(password,user.hash,user.salt)){
+                const token = auth.generateJWT(Number(user.id));
+                return resp.status(200).json({token:token, userId: user.id})
             }
             
             return resp.status(401).json({message:"Senha ou email incorretos"});

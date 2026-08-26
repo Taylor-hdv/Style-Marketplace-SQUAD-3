@@ -13,13 +13,15 @@ datasource db {
 }
 
 model Product {
-  id          String    @id @default(cuid())
-  name        String
-  description String
-  discount    Float
-  tag         String
-  variants    Variant[]
-  specification String
+  id                String            @id @default(cuid())
+  name              String
+  description       String
+  discount          Float
+  tag               String
+  variants          Variant[]
+  specification     String
+  productCategories ProductCategory[]
+  reviews           Review[]
 }
 
 model Variant {
@@ -39,36 +41,35 @@ enum Gender {
 }
 
 model User {
-  id                String    @id @default(cuid())
+  id                String     @id @default(cuid())
   firstName         String
   lastName          String
-  email             String    @unique
-  smsNotification   Boolean   @default(false)
-  marketingEmails   Boolean   @default(false)
-  orderUpdates      Boolean   @default(true)
-  newArrivals       Boolean   @default(false)
+  email             String     @unique
+  smsNotification   Boolean    @default(false)
+  marketingEmails   Boolean    @default(false)
+  orderUpdates      Boolean    @default(true)
+  newArrivals       Boolean    @default(false)
   gender            Gender?
-  salesAlerts       Boolean   @default(false)
-  birthDate         DateTime?
-  memberSince       DateTime  @default(now())
-  emailNotification Boolean   @default(true)
-  phone Telephone?
-  //hash              String
-  //salt              String
-  cart               Cart?
-  order              Order[]
+  salesAlerts       Boolean    @default(false)
+  birthDate         DateTime?  @db.Date
+  memberSince       DateTime   @default(now()) @db.Date
+  emailNotification Boolean    @default(true)
+  phone             Telephone?
+  hash              String
+  salt              String
+  cart              Cart?
+  order             Order[]
+  reviews           Review[]
 }
 
-
-
 model Cart {
-  id                 String        @id @default(cuid())
-  totalPrice         Float         @default(0.0)
-  shipping           Float         @default(0.0)
-  totalQuantity      Int           @default(0)
+  id            String @id @default(cuid())
+  totalPrice    Float  @default(0.0)
+  shipping      Float  @default(0.0)
+  totalQuantity Int    @default(0)
 
-  userId             String        @unique
-  user               User          @relation(fields: [userId], references: [id])
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id])
   //items  CartVariant[]
 }
 
@@ -86,24 +87,51 @@ enum PaymentMethod {
 }
 
 model Order {
-  id                String        @id @default(cuid())
-  totalQuantity     Int
-  status            OrderStatus   @default(PROCESSING)
-  adress            String
-  totalPrice        Float
-  date              DateTime      @default(now())
-  shipping          Float
-  paymentMethod     PaymentMethod @default(PENDING)
+  id            String        @id @default(cuid())
+  totalQuantity Int
+  status        OrderStatus   @default(PROCESSING)
+  adress        String
+  totalPrice    Float
+  date          DateTime      @default(now())
+  shipping      Float
+  paymentMethod PaymentMethod @default(PENDING)
 
-  userId            String
-  user              User          @relation(fields: [userId], references: [id])
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
 }
 
-model Telephone{
-  id            String      @id @default(cuid())
-  DDD           String 
-  phoneNumber   String 
-  userId        String      @unique
-  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+model Telephone {
+  id          String @id @default(cuid())
+  DDD         String
+  phoneNumber String
+  userId      String @unique
+  user        User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
 
+model Category {
+  id       String @id @default(cuid())
+  name     String
+  quantity Int    @default(0)
+
+  productCategories ProductCategory[]
+}
+
+model ProductCategory {
+  productId  String
+  categoryId String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([productId, categoryId])
+}
+
+model Review {
+  id        String @id @default(cuid())
+  rating    Int
+  text      String
+  userId    String
+  productId String
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 }
