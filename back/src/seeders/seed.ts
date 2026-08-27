@@ -36,43 +36,172 @@ async function main() {
         }
     });
 
-    console.log("Produto criado:", product.name);
-
-    const variants = [
-        {
+    const existingVariant = await prisma.variant.findFirst({
+        where: {
+            productId: product.id,
             color: "Black",
-            size: "M",
-            quantity: 20,
-            price: 99.90
-        },
-        {
-            color: "White",
-            size: "G",
-            quantity: 10,
-            price: 109.90
+            size: "M"
         }
-    ];
+    });
 
-    for (const variantData of variants) {
-        const existingVariant = await prisma.variant.findFirst({
-            where: {
-                productId: product.id,
-                color: variantData.color,
-                size: variantData.size
+    if (!existingVariant) {
+        await prisma.variant.create({
+            data: {
+                color: "Black",
+                size: "M",
+                quantity: 20,
+                price: 99.90,
+                productId: product.id
             }
         });
-
-        if (!existingVariant) {
-            await prisma.variant.create({
-                data: {
-                    ...variantData,
-                    productId: product.id
-                }
-            });
-        }
     }
 
-    console.log("Variantes criadas.");
+    const existingProduct2 = await prisma.product.findFirst({
+        where: {
+            name: "Cashmere Sweater"
+        }
+    });
+
+    const product2 = existingProduct2 ?? await prisma.product.create({
+        data: {
+            name: "Cashmere Sweater",
+            discount: 15,
+            description: "Comfortable casual Sweater",
+            tag: "clothing",
+            specification: "Cashmere tissue"
+        }
+    });
+
+    const existingVariant2 = await prisma.variant.findFirst({
+        where: {
+            productId: product2.id,
+            color: "Brown",
+            size: "G"
+        }
+    });
+
+    if (!existingVariant2) {
+        await prisma.variant.create({
+            data: {
+                color: "Brown",
+                size: "g",
+                quantity: 15,
+                price: 199.90,
+                productId: product2.id
+            }
+        });
+    }
+
+    const existingProduct3 = await prisma.product.findFirst({
+        where: {
+            name: "Slim Jeans"
+        }
+    });
+
+    const product3 = existingProduct3 ?? await prisma.product.create({
+        data: {
+            name: "Slim Jeans",
+            discount: 5,
+            description: "Slim fit denim jeans",
+            tag: "clothing",
+            specification: "Denim"
+        }
+    });
+
+    const existingVariant3 = await prisma.variant.findFirst({
+        where: {
+            productId: product3.id,
+            color: "Blue",
+            size: "42"
+        }
+    });
+
+    if (!existingVariant3) {
+        await prisma.variant.create({
+            data: {
+                color: "Blue",
+                size: "42",
+                quantity: 15,
+                price: 149.90,
+                productId: product3.id
+            }
+        });
+    }
+
+    const existingProduct4 = await prisma.product.findFirst({
+        where: {
+            name: "Running Shoes"
+        }
+    });
+
+    const product4 = existingProduct4 ?? await prisma.product.create({
+        data: {
+            name: "Running Shoes",
+            discount: 20,
+            description: "Running shoes for daily activities",
+            tag: "shoes",
+            specification: "Lightweight material"
+        }
+    });
+
+    const existingVariant4 = await prisma.variant.findFirst({
+        where: {
+            productId: product4.id,
+            color: "White",
+            size: "41"
+        }
+    });
+
+    if (!existingVariant4) {
+        await prisma.variant.create({
+            data: {
+                color: "White",
+                size: "41",
+                quantity: 10,
+                price: 249.90,
+                productId: product4.id
+            }
+        });
+    }
+
+    const existingProduct5 = await prisma.product.findFirst({
+        where: {
+            name: "Casual Jacket"
+        }
+    });
+
+    const product5 = existingProduct5 ?? await prisma.product.create({
+        data: {
+            name: "Casual Jacket",
+            discount: 12,
+            description: "Casual jacket for everyday use",
+            tag: "clothing",
+            specification: "Polyester"
+        }
+    });
+
+    const existingVariant5 = await prisma.variant.findFirst({
+        where: {
+            productId: product5.id,
+            color: "Green",
+            size: "M"
+        }
+    });
+
+    if (!existingVariant5) {
+        await prisma.variant.create({
+            data: {
+                color: "Green",
+                size: "M",
+                quantity: 8,
+                price: 219.90,
+                productId: product5.id
+            }
+        });
+    }
+
+    console.log("Produtos e variantes criados.");
+
 
     let category = await prisma.category.findFirst({
         where: {
@@ -104,6 +233,62 @@ async function main() {
         }
     });
 
+    await prisma.productCategory.upsert({
+        where: {
+            productId_categoryId: {
+                productId: product2.id,
+                categoryId: category.id
+            }
+        },
+        update: {},
+        create: {
+            productId: product2.id,
+            categoryId: category.id
+        }
+    });
+
+    await prisma.productCategory.upsert({
+        where: {
+            productId_categoryId: {
+                productId: product3.id,
+                categoryId: category.id
+            }
+        },
+        update: {},
+        create: {
+            productId: product3.id,
+            categoryId: category.id
+        }
+    });
+
+    await prisma.productCategory.upsert({
+        where: {
+            productId_categoryId: {
+                productId: product4.id,
+                categoryId: category.id
+            }
+        },
+        update: {},
+        create: {
+            productId: product4.id,
+            categoryId: category.id
+        }
+    });
+
+    await prisma.productCategory.upsert({
+        where: {
+            productId_categoryId: {
+                productId: product5.id,
+                categoryId: category.id
+            }
+        },
+        update: {},
+        create: {
+            productId: product5.id,
+            categoryId: category.id
+        }
+    });
+
     const categoryProductQuantity = await prisma.productCategory.count({
         where: {
             categoryId: category.id
@@ -119,11 +304,12 @@ async function main() {
         }
     });
 
-    console.log("ProductCategory criada.");
+    console.log("Produtos associados à categoria.");
+    console.log("Quantidade da categoria:", categoryProductQuantity);
+
     console.log("Seed finalizada com sucesso.");
     
 }
-
 
 main()
     .catch((error) => {
