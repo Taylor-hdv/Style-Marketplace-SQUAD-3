@@ -8,6 +8,7 @@ import {validate} from "../middlewares/Validate"
 import {createUserSchema,updateUserSchema,loginSchema} from "../schemas/UserSchema"
 import { AuthMiddleware } from "../middlewares/authMiddleware";
 import { ReviewController } from "../controllers/reviewController";
+import {telephoneSchema} from "../config/TelephoneValidator"
 
 const router = Router();
 
@@ -48,10 +49,9 @@ router.delete("/review/:reviewId", ReviewController.deleteReview);
 
 
 // Rotas do Telefone
-router.put("/telephone", TelephoneController.updateTelephone);
 router.get("/telephone", TelephoneController.readAllTelephones); 
 router.get("/telephone/:userId", TelephoneController.readTelephone); 
-router.put("/telephone/:userId", TelephoneController.updateTelephone); 
+router.put("/telephone/:userId", validate(telephoneSchema),TelephoneController.updateTelephone); 
 router.delete("/telephone/:userId", TelephoneController.deleteTelephone);
 
 
