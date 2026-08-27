@@ -1,22 +1,26 @@
 import { Request, Response } from "express";
 import { prisma } from "../config/prisma";
+import { createReviewSchema, updateReviewSchema } from "../schemas/reviewSchema";
 
 export class ReviewController {
 
     public static async createReview(req: Request, resp: Response) {
         try {
+            const validation = createReviewSchema.safeParse(req.body);
+
+            if (!validation.success) {
+                return resp.status(400).json({
+                    message: "Dados inválidos",
+                    errors: validation.error.flatten().fieldErrors
+                });
+            }
+
             const {
                 rating,
                 text,
                 userId,
                 productId
-            } = req.body;
-
-            if (rating < 1 || rating > 5) {
-                return resp.status(400).json({
-                    message: "A nota deve ser entre 1 e 5."
-                });
-            }
+            } = validation.data;
 
             const foundUser = await prisma.user.findUnique({
                 where: {
@@ -117,12 +121,6 @@ export class ReviewController {
         try {
             const { reviewId } = req.params;
             const { rating, text } = req.body;
-
-            if (rating !== undefined && (rating < 1 || rating > 5)) {
-                return resp.status(400).json({
-                    message: "A nota deve ser entre 1 e 5."
-                });
-            }
 
             const updateData = {
                 ...(rating !== undefined && { rating }),

@@ -1,18 +1,28 @@
 import { Request, Response } from "express";
 import { Prisma } from "../generated/prisma/client";
 import { prisma } from "../config/prisma";
+import { createProductSchema, updateProductSchema } from "../schemas/productSchema";
 
 export class ProductController {
 
     public static async createProduct(req: Request, resp: Response) {
         try {
+            const validation = createProductSchema.safeParse(req.body);
+
+            if (!validation.success) {
+                return resp.status(400).json({
+                    message: "Dados inválidos",
+                    errors: validation.error.flatten().fieldErrors
+                });
+            }
+
             const {
                 name,
                 discount,
                 description,
                 tag,
                 specification
-            } = req.body;
+            } = validation.data;
 
             const createData: Prisma.ProductCreateInput = {
                 name,
@@ -30,6 +40,7 @@ export class ProductController {
                 message: "Produto criado com sucesso.",
                 product: createdProduct
             });
+            
         } catch (error: any) {
             return resp.status(500).json({
                 message: error.message
