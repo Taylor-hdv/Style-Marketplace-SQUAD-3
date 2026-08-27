@@ -42,6 +42,7 @@ function Profile({ profileImage, wishlist, ratings }: ProfileCardProps) {
     resolver: zodResolver(profileSchema),
   });
   const onSubmit = (data: ProfileFormData) => {
+    console.log(data);
     updateUser(data);
   };
 

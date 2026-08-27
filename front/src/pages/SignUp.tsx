@@ -29,17 +29,9 @@ function SignUp() {
   const navigate = useNavigate();
 
   const onSubmit = (data: SignUpFormData) => {
+    console.log(data);
     signUpUser(data);
   };
-  useEffect(() => {
-    async function userLoged() {
-      const token = sessionStorage.getItem("token");
-      if (!token) {
-        navigate("/sign-in");
-      }
-    }
-    userLoged();
-  }, [navigate]);
 
   const signUpUser = async (data: SignUpFormData) => {
     try {
