@@ -25,7 +25,6 @@ function SignUp() {
   const navigate = useNavigate();
 
   const onSubmit = (data: SignInFormData) => {
-    console.log(data);
     loginUser(data);
   };
 

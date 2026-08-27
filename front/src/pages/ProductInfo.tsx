@@ -55,7 +55,7 @@ export default function ProductInfo({
     if (!token) {
       navigate("/sign-in");
     } else {
-      console.log("Added to cart:", data);
+      navigate("/product-info");
     }
   };
   const handleBuyNow = (data: ProductOrderFormData) => {
@@ -63,7 +63,7 @@ export default function ProductInfo({
     if (!token) {
       navigate("/sign-in");
     } else {
-      console.log("Bought now:", data);
+      navigate("/check-out");
     }
   };
   const [quantity, setQuantity] = useState(1);
