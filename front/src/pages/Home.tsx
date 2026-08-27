@@ -98,25 +98,25 @@ function Home() {
           <div className="grid grid-col-1 gap-6 md:grid-cols-2 2xl:flex">
             <CardCategory
               src={productImage}
-              alt="Product Image"
+              alt="Blue flowery dress"
               title="Women's fashion"
               quantity="500"
             />
             <CardCategory
               src={productImage}
-              alt="Product Image"
+              alt="Denim Jacket"
               title="Men's fashion"
               quantity="350"
             />
             <CardCategory
               src={productImage}
-              alt="Product Image"
+              alt="golden ring with diamonds"
               title="Accessories"
               quantity="200"
             />
             <CardCategory
               src={productImage}
-              alt="Product Image"
+              alt="white Sneakers"
               title="Shoes"
               quantity="180"
             />
@@ -134,7 +134,7 @@ function Home() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 2xl:flex">
             <CardProduct
               src={productImage}
-              alt="Product Image"
+              alt="Denim Jacket with white shirt"
               title="Vintage Denim Jacket"
               price="89"
               oldPrice="120"
@@ -145,7 +145,7 @@ function Home() {
             />
             <CardProduct
               src={productImage}
-              alt="Product Image"
+              alt="Black blazer oversized with white lines"
               title="Oversized Blazer"
               price="145"
               rating={4.9}
@@ -155,7 +155,7 @@ function Home() {
             />
             <CardProduct
               src={productImage}
-              alt="Product Image"
+              alt="Blue jeans with leather pockets"
               title="Confort Slim Jeans"
               price="79"
               oldPrice="99"
@@ -166,7 +166,7 @@ function Home() {
             />
             <CardProduct
               src={productImage}
-              alt="Product Image"
+              alt="White silk blouse with V-neck and ruffles on the shoulders"
               title="Silk Blouse"
               price="125"
               rating={4.8}
