@@ -7,6 +7,7 @@ interface productCardProps {
   price: number;
   rating?: number;
   oldPrice?: number;
+  onClick?: () => void;
 }
 function OtherProductCard({
   src,
@@ -15,9 +16,13 @@ function OtherProductCard({
   price,
   rating,
   oldPrice,
+  onClick,
 }: productCardProps) {
   return (
-    <section className="flex flex-col items-center justify-start w-full bg-white shadow-[0_10px_15px_-3px_rgba(0,0,0,0.10),0_4px_6px_-4px_rgba(0,0,0,0.10)] rounded-xl relative">
+    <section
+      onClick={onClick}
+      className="flex flex-col items-center justify-start w-full bg-white shadow-[0_10px_15px_-3px_rgba(0,0,0,0.10),0_4px_6px_-4px_rgba(0,0,0,0.10)] rounded-xl relative cursor-pointer"
+    >
       <div className="w-full relative">
         <img
           src={src}

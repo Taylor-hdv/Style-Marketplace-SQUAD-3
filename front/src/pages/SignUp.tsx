@@ -9,7 +9,7 @@ import personIcon from "../assets/signUp/personIcon.svg";
 import emailIcon from "../assets/signUp/emailIcon.svg";
 import googleIcon from "../assets/signUp/googleIcon.svg";
 import facebookIcon from "../assets/signUp/facebookIcon.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -31,6 +31,15 @@ function SignUp() {
   const onSubmit = (data: SignUpFormData) => {
     signUpUser(data);
   };
+  useEffect(() => {
+    async function userLoged() {
+      const token = sessionStorage.getItem("token");
+      if (!token) {
+        navigate("/sign-in");
+      }
+    }
+    userLoged();
+  }, [navigate]);
 
   const signUpUser = async (data: SignUpFormData) => {
     try {

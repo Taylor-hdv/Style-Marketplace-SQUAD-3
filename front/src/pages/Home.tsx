@@ -15,7 +15,7 @@ function Home() {
 
   useEffect(() => {
     async function userLoged() {
-      const token = sessionStorage.getItem("token");
+      const token = localStorage.getItem("token");
       if (!token) {
         navigate("/sign-in");
       }
@@ -142,6 +142,7 @@ function Home() {
               quantity={124}
               tag="Best Seller"
               tagColor="bg-blackCustom"
+              onClick={() => navigate("/product-info")}
             />
             <CardProduct
               src={productImage}
@@ -152,6 +153,7 @@ function Home() {
               quantity={89}
               tag="New"
               tagColor="bg-blackCustom"
+              onClick={() => navigate("/product-info")}
             />
             <CardProduct
               src={productImage}
@@ -163,6 +165,7 @@ function Home() {
               quantity={203}
               tag="Sale"
               tagColor="bg-redCustom"
+              onClick={() => navigate("/product-info")}
             />
             <CardProduct
               src={productImage}
@@ -173,6 +176,7 @@ function Home() {
               quantity={156}
               tag="Premium"
               tagColor="bg-blackCustom"
+              onClick={() => navigate("/product-info")}
             />
           </div>
         </section>

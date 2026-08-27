@@ -50,8 +50,21 @@ export default function ProductInfo({
   } = useForm<ProductOrderFormData>({
     resolver: zodResolver(productOrderSchema),
   });
-  const onSubmit = (data: ProductOrderFormData) => {
-    console.log(data);
+  const handleAddCart = (data: ProductOrderFormData) => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/sign-in");
+    } else {
+      console.log("Added to cart:", data);
+    }
+  };
+  const handleBuyNow = (data: ProductOrderFormData) => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/sign-in");
+    } else {
+      console.log("Bought now:", data);
+    }
   };
   const [quantity, setQuantity] = useState(1);
   useEffect(() => {
@@ -134,10 +147,7 @@ export default function ProductInfo({
             </p>
           </div>
           <div className="flex flex-col items-start justify-center w-full mb-16">
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="gap-6 flex flex-col w-full"
-            >
+            <form className="gap-6 flex flex-col w-full">
               <hr className="w-full border border-grayCustom" />
               <div className="flex flex-col gap-3 items-start justify-center">
                 <h3 className="text-blackCustom font-semibold font-segoe">
@@ -260,8 +270,8 @@ export default function ProductInfo({
                   <Button
                     src={cart}
                     text="Add to Cart"
-                    type="submit"
-                    onClick={() => {}}
+                    type="button"
+                    onClick={handleSubmit(handleAddCart)}
                     backgroundColor="blackCustom"
                     width="w-full"
                     imageSize="w-4 h-4"
@@ -283,7 +293,7 @@ export default function ProductInfo({
                 <Button
                   text="Buy Now"
                   type="button"
-                  onClick={() => {}}
+                  onClick={handleSubmit(handleBuyNow)}
                   backgroundColor="whiteCustom"
                   hasBorder={true}
                   width="w-full"
@@ -374,6 +384,7 @@ export default function ProductInfo({
             price={39}
             rating={4.7}
             oldPrice={55}
+            onClick={() => navigate("/product-info")}
           />
           <OtherProductCard
             src={productImage}
@@ -381,6 +392,7 @@ export default function ProductInfo({
             title="Casual Henley"
             price={35}
             rating={4.6}
+            onClick={() => navigate("/product-info")}
           />
           <OtherProductCard
             src={productImage}
@@ -389,6 +401,7 @@ export default function ProductInfo({
             price={79}
             rating={4.8}
             oldPrice={99}
+            onClick={() => navigate("/product-info")}
           />
         </div>
       </div>
