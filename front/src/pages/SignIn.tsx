@@ -32,8 +32,8 @@ function SignUp() {
     try {
       const response = await API.post("/login", data);
       const { token, userId } = response.data;
-      sessionStorage.setItem("token", token);
-      sessionStorage.setItem("userId", userId);
+      localStorage.setItem("token", token);
+      localStorage.setItem("userId", userId);
       navigate("/");
     } catch (error) {
       console.error("Erro para fazer login:", error);

@@ -52,8 +52,8 @@ function Profile({ profileImage, wishlist, ratings }: ProfileCardProps) {
   }, []);
 
   async function buscarDados() {
-    const token = sessionStorage.getItem("token");
-    const userId = sessionStorage.getItem("userId");
+    const token = localStorage.getItem("token");
+    const userId = localStorage.getItem("userId");
     try {
       const response = await API.get(`/user/${userId}`, {
         headers: {
@@ -122,8 +122,8 @@ function Profile({ profileImage, wishlist, ratings }: ProfileCardProps) {
 
   const updateUser = async (data: ProfileFormData) => {
     try {
-      const token = sessionStorage.getItem("token");
-      const userId = sessionStorage.getItem("userId");
+      const token = localStorage.getItem("token");
+      const userId = localStorage.getItem("userId");
       await API.put(`/user/${userId}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,

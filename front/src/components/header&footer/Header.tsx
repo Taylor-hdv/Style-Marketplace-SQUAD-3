@@ -32,16 +32,28 @@ function Header({ notifications }: headerProps) {
           </p>
         </div>
         <div className="hidden flex-row gap-8 md:gap-4 lg:gap-8 items-center md:flex">
-          <button className="text-[rgba(3, 7, 17, 0.80)] font-semibold text-[0.875rem]">
+          <button
+            onClick={() => navigate("/new-in")}
+            className="text-[rgba(3, 7, 17, 0.80)] font-semibold text-[0.875rem] cursor-pointer"
+          >
             New In
           </button>
-          <button className="text-[rgba(3, 7, 17, 0.80)] font-semibold text-[0.875rem]">
+          <button
+            onClick={() => navigate("/women")}
+            className="text-[rgba(3, 7, 17, 0.80)] font-semibold text-[0.875rem] cursor-pointer"
+          >
             Womam
           </button>
-          <button className="text-[rgba(3, 7, 17, 0.80)] font-semibold text-[0.875rem]">
+          <button
+            onClick={() => navigate("/men")}
+            className="text-[rgba(3, 7, 17, 0.80)] font-semibold text-[0.875rem] cursor-pointer"
+          >
             Men
           </button>
-          <button className="text-[rgba(3, 7, 17, 0.80)] font-semibold text-[0.875rem]">
+          <button
+            onClick={() => navigate("/sale")}
+            className="text-[rgba(3, 7, 17, 0.80)] font-semibold text-[0.875rem] cursor-pointer"
+          >
             Sale
           </button>
         </div>
@@ -53,8 +65,18 @@ function Header({ notifications }: headerProps) {
           ></input>
         </div>
         <div className="flex flex-row items-center justify-center">
-          <img src={search2} alt="Search" className="w-10 h-10 md:hidden" />
-          <img src={heart} alt="Favorites" className="w-10 h-10" />
+          <img
+            src={search2}
+            alt="Search"
+            className="w-10 h-10 md:hidden cursor-pointer"
+            onClick={() => navigate("/search")}
+          />
+          <img
+            src={heart}
+            alt="Favorites"
+            className="w-10 h-10 cursor-pointer"
+            onClick={() => navigate("/favorites")}
+          />
           <div
             onClick={() => navigate("/profile")}
             className="cursor-pointer w-fit h-fit"
@@ -62,7 +84,12 @@ function Header({ notifications }: headerProps) {
             <img src={profileIcon} alt="Profile" className="w-10 h-10" />
           </div>
           <div className="relative w-10 h-10">
-            <img src={bag} alt="Itens" className="w-10 h-10" />
+            <img
+              src={bag}
+              alt="Itens"
+              className="w-10 h-10 cursor-pointer"
+              onClick={() => navigate("/cart")}
+            />
             {notifications > 0 && (
               <span className="flex items-center justify-center w-5 h-5 rounded-full bg-blackCustom text-whiteCustom text-[0.75rem] font-semibold absolute top-0 right-0">
                 {notifications}
