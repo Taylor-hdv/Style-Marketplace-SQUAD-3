@@ -9,7 +9,7 @@ import personIcon from "../assets/signUp/personIcon.svg";
 import emailIcon from "../assets/signUp/emailIcon.svg";
 import googleIcon from "../assets/signUp/googleIcon.svg";
 import facebookIcon from "../assets/signUp/facebookIcon.svg";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
