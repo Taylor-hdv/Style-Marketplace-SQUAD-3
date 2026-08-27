@@ -49,10 +49,9 @@ router.delete("/review/:reviewId", ReviewController.deleteReview);
 
 
 // Rotas do Telefone
-router.put("/telephone", validate(telephoneSchema),TelephoneController.updateTelephone);
 router.get("/telephone", TelephoneController.readAllTelephones); 
 router.get("/telephone/:userId", TelephoneController.readTelephone); 
-router.put("/telephone/:userId", TelephoneController.updateTelephone); 
+router.put("/telephone/:userId", validate(telephoneSchema),TelephoneController.updateTelephone); 
 router.delete("/telephone/:userId", TelephoneController.deleteTelephone);
 
 
