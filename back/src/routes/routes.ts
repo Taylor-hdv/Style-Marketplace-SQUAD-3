@@ -50,11 +50,11 @@ router.delete("/review/:reviewId", ReviewController.deleteReview);
 
 
 // Rotas do Telefone
-router.put("/telephone", validate(telephoneSchema),TelephoneController.updateTelephone);
-router.get("/telephone", TelephoneController.readAllTelephones); 
-router.get("/telephone/:userId", TelephoneController.readTelephone); 
-router.put("/telephone/:userId", validate(telephoneSchema),TelephoneController.updateTelephone); 
-router.delete("/telephone/:userId", TelephoneController.deleteTelephone);
+router.put("/telephone", AuthMiddleware.execute, validate(telephoneSchema),TelephoneController.updateTelephone);
+router.get("/telephone", AuthMiddleware.execute, TelephoneController.readAllTelephones); 
+router.get("/telephone/:userId", AuthMiddleware.execute, TelephoneController.readTelephone); 
+router.put("/telephone/:userId", AuthMiddleware.execute, validate(telephoneSchema),TelephoneController.updateTelephone); 
+router.delete("/telephone/:userId", AuthMiddleware.execute, TelephoneController.deleteTelephone);
 
 
 export default router;
