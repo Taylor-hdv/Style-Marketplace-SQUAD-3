@@ -15,7 +15,7 @@ function Home() {
 
   useEffect(() => {
     async function userLoged() {
-      const token = sessionStorage.getItem("token");
+      const token = localStorage.getItem("token");
       if (!token) {
         navigate("/sign-in");
       }
@@ -98,25 +98,25 @@ function Home() {
           <div className="grid grid-col-1 gap-6 md:grid-cols-2 2xl:flex">
             <CardCategory
               src={productImage}
-              alt="Product Image"
+              alt="Blue flowery dress"
               title="Women's fashion"
               quantity="500"
             />
             <CardCategory
               src={productImage}
-              alt="Product Image"
+              alt="Denim Jacket"
               title="Men's fashion"
               quantity="350"
             />
             <CardCategory
               src={productImage}
-              alt="Product Image"
+              alt="golden ring with diamonds"
               title="Accessories"
               quantity="200"
             />
             <CardCategory
               src={productImage}
-              alt="Product Image"
+              alt="white Sneakers"
               title="Shoes"
               quantity="180"
             />
@@ -134,7 +134,7 @@ function Home() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 2xl:flex">
             <CardProduct
               src={productImage}
-              alt="Product Image"
+              alt="Denim Jacket with white shirt"
               title="Vintage Denim Jacket"
               price="89"
               oldPrice="120"
@@ -142,20 +142,22 @@ function Home() {
               quantity={124}
               tag="Best Seller"
               tagColor="bg-blackCustom"
+              onClick={() => navigate("/product-info")}
             />
             <CardProduct
               src={productImage}
-              alt="Product Image"
+              alt="Black blazer oversized with white lines"
               title="Oversized Blazer"
               price="145"
               rating={4.9}
               quantity={89}
               tag="New"
               tagColor="bg-blackCustom"
+              onClick={() => navigate("/product-info")}
             />
             <CardProduct
               src={productImage}
-              alt="Product Image"
+              alt="Blue jeans with leather pockets"
               title="Confort Slim Jeans"
               price="79"
               oldPrice="99"
@@ -163,16 +165,18 @@ function Home() {
               quantity={203}
               tag="Sale"
               tagColor="bg-redCustom"
+              onClick={() => navigate("/product-info")}
             />
             <CardProduct
               src={productImage}
-              alt="Product Image"
+              alt="White silk blouse with V-neck and ruffles on the shoulders"
               title="Silk Blouse"
               price="125"
               rating={4.8}
               quantity={156}
               tag="Premium"
               tagColor="bg-blackCustom"
+              onClick={() => navigate("/product-info")}
             />
           </div>
         </section>

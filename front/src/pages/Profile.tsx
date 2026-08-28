@@ -52,8 +52,8 @@ function Profile({ profileImage, wishlist, ratings }: ProfileCardProps) {
   }, []);
 
   async function buscarDados() {
-    const token = sessionStorage.getItem("token");
-    const userId = sessionStorage.getItem("userId");
+    const token = localStorage.getItem("token");
+    const userId = localStorage.getItem("userId");
     try {
       const response = await API.get(`/user/${userId}`, {
         headers: {
@@ -122,8 +122,8 @@ function Profile({ profileImage, wishlist, ratings }: ProfileCardProps) {
 
   const updateUser = async (data: ProfileFormData) => {
     try {
-      const token = sessionStorage.getItem("token");
-      const userId = sessionStorage.getItem("userId");
+      const token = localStorage.getItem("token");
+      const userId = localStorage.getItem("userId");
       await API.put(`/user/${userId}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -154,7 +154,7 @@ function Profile({ profileImage, wishlist, ratings }: ProfileCardProps) {
           <div className="flex flex-col items-start justify-center mb-6 gap-0">
             <h2 className="text-blackCustom font-segoe text-[1.875rem] font-bold">
               {user?.firstName}
-              {' ' + user?.lastName}
+              {" " + user?.lastName}
             </h2>
             <p className="text-grayCustom3 text-[1rem] font-segoe mb-2">
               {user?.email}

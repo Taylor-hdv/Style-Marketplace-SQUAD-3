@@ -32,6 +32,8 @@ model Variant {
   price     Decimal
   productId String
   product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  cartVariants     CartVariant[]
+  orderVariants    OrderVariant[]
 }
 
 enum Gender {
@@ -68,9 +70,19 @@ model Cart {
   shipping      Float  @default(0.0)
   totalQuantity Int    @default(0)
 
-  userId String @unique
-  user   User   @relation(fields: [userId], references: [id])
-  //items  CartVariant[]
+  userId             String        @unique
+  user               User          @relation(fields: [userId], references: [id])
+  items              CartVariant[]
+}
+
+model CartVariant {
+  id                 String        @id @default(cuid())
+  itemQuantity       Int
+  
+  cartId             String
+  cart               Cart          @relation(fields: [cartId], references: [id])
+  variantId          String
+  variant            Variant       @relation(fields: [variantId], references: [id])
 }
 
 enum OrderStatus {
@@ -98,6 +110,7 @@ model Order {
 
   userId String
   user   User   @relation(fields: [userId], references: [id])
+  orderVariants     OrderVariant[]
 }
 
 model Telephone {
@@ -134,4 +147,15 @@ model Review {
 
   user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model OrderVariant {
+  id                String        @id @default(cuid())
+  itemQuantity      Int
+  itemPrice         Float
+
+  orderId           String
+  order             Order         @relation(fields: [orderId], references: [id])
+  variantId         String
+  variant           Variant       @relation(fields: [variantId], references: [id])
 }
