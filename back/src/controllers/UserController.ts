@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { Prisma } from "../generated/prisma/client";
 import { prisma } from "../config/prisma";
 import auth from "../config/auth"
+import { Mailer } from "../config/mailer";
 
 
 
@@ -34,6 +35,13 @@ export class UserController{
             }
 
             const createdUser = await prisma.user.create({data:createData})
+
+            await Mailer.sendEmail(
+                email,
+                "Welcome to Style Marketplace",
+                "Thank you for joining Style Marketplace! We are excited to have you with us.",
+            );
+
             return resp.status(201).json({Message:"Usuariario criado com sucesso ",id:createdUser})
                 
         }

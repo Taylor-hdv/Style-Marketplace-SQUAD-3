@@ -8,6 +8,8 @@ import {validate} from "../middlewares/Validate"
 import {createUserSchema,updateUserSchema,loginSchema} from "../schemas/UserSchema"
 import { AuthMiddleware } from "../middlewares/authMiddleware";
 import { ReviewController } from "../controllers/reviewController";
+import {telephoneSchema} from "../config/TelephoneValidator"
+import {createVariantSchema,updateVariantSchema} from "../config/VariantValidator"
 import { CartController } from "../controllers/CartController";
 import { OrderController } from "../controllers/OrderController";
 
@@ -27,10 +29,10 @@ router.get("/products", ProductController.readAllProducts);
 router.put("/product/:productId", ProductController.updateProduct);
 router.delete("/product/:productId", ProductController.deleteProduct);
 
-router.post("/variant", VariantController.createVariant);
+router.post("/variant", validate(createVariantSchema), VariantController.createVariant);
 router.get("/variant/:variantId", VariantController.readVariant);
 router.get("/variants", VariantController.readAllVariants);
-router.put("/variant/:variantId", VariantController.updateVariant);
+router.put("/variant/:variantId", validate(updateVariantSchema), VariantController.updateVariant);
 router.delete("/variant/:variantId", VariantController.deleteVariant);
 
 router.post("/category", CategoryController.createCategory);
@@ -50,10 +52,9 @@ router.delete("/review/:reviewId", ReviewController.deleteReview);
 
 
 // Rotas do Telefone
-router.put("/telephone", TelephoneController.updateTelephone);
 router.get("/telephone", TelephoneController.readAllTelephones); 
 router.get("/telephone/:userId", TelephoneController.readTelephone); 
-router.put("/telephone/:userId", TelephoneController.updateTelephone); 
+router.put("/telephone/:userId", validate(telephoneSchema),TelephoneController.updateTelephone); 
 router.delete("/telephone/:userId", TelephoneController.deleteTelephone);
 
 
