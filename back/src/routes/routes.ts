@@ -10,6 +10,8 @@ import { AuthMiddleware } from "../middlewares/authMiddleware";
 import { ReviewController } from "../controllers/reviewController";
 import {telephoneSchema} from "../config/TelephoneValidator"
 import {createVariantSchema,updateVariantSchema} from "../config/VariantValidator"
+import { CartController } from "../controllers/CartController";
+import { OrderController } from "../controllers/OrderController";
 
 const router = Router();
 
@@ -55,5 +57,18 @@ router.get("/telephone/:userId", TelephoneController.readTelephone);
 router.put("/telephone/:userId", validate(telephoneSchema),TelephoneController.updateTelephone); 
 router.delete("/telephone/:userId", TelephoneController.deleteTelephone);
 
+
+router.post("/cart", CartController.createCart);
+router.get("/cart/:cartId", CartController.readCart);
+router.get("/carts", CartController.readAllCarts);
+router.put("/cart/:cartId", CartController.updateCart);
+router.delete("/cart/:cartId", CartController.deleteCart);
+router.post("/cart/:cartId/add", CartController.addVariantToCart);
+
+router.post("/order", OrderController.createOrder);
+router.get("/order/:orderId", OrderController.readOrder);
+router.get("/orders", OrderController.readAllOrders);
+router.put("/order/:orderId", OrderController.updateOrder);
+router.delete("/order/:orderId", OrderController.deleteOrder);
 
 export default router;
