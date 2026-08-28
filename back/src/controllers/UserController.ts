@@ -59,8 +59,11 @@ export class UserController{
                 where:{ 
                     id:String(userId)
                 }, include: {
-                    cart: true,
-                    order:true,
+                    _count: {
+                        select: {
+                            order: true
+                        }
+                    }
                 }
             })
             return resp.status(200).json(foundUser);
