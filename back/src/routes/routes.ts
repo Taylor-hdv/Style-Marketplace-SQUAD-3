@@ -8,6 +8,7 @@ import {validate} from "../middlewares/Validate"
 import {createUserSchema,updateUserSchema,loginSchema} from "../schemas/UserSchema"
 import { AuthMiddleware } from "../middlewares/authMiddleware";
 import { ReviewController } from "../controllers/reviewController";
+import { WishlistController } from "../controllers/WishlistController";
 
 const router = Router();
 
@@ -54,5 +55,8 @@ router.get("/telephone/:userId", TelephoneController.readTelephone);
 router.put("/telephone/:userId", TelephoneController.updateTelephone); 
 router.delete("/telephone/:userId", TelephoneController.deleteTelephone);
 
+router.get("/wishlist/:wishlistId", WishlistController.readWishlist);
+router.post("/wishlist/:wishlistId/add", WishlistController.addProductToWishlist);
+router.delete("/wishlist/:wishlistId/remove/:productId", WishlistController.removeProductFromWishlist);
 
 export default router;
