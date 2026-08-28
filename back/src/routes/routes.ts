@@ -60,17 +60,17 @@ router.put("/telephone/:userId", validate(telephoneSchema),TelephoneController.u
 router.delete("/telephone/:userId", TelephoneController.deleteTelephone);
 
 
-router.post("/cart", CartController.createCart);
-router.get("/cart/:cartId", CartController.readCart);
+router.post("/cart",AuthMiddleware.execute, CartController.createCart);
+router.get("/cart/:cartId",AuthMiddleware.execute, CartController.readCart);
 router.get("/carts", CartController.readAllCarts);
-router.put("/cart/:cartId", CartController.updateCart);
-router.delete("/cart/:cartId", CartController.deleteCart);
-router.post("/cart/:cartId/add", CartController.addVariantToCart);
+router.put("/cart/:cartId", AuthMiddleware.execute, CartController.updateCart);
+router.delete("/cart/:cartId", AuthMiddleware.execute, CartController.deleteCart);
+router.post("/cart/:cartId/add", AuthMiddleware.execute, AuthMiddleware.execute, CartController.addVariantToCart);
 
-router.post("/order", OrderController.createOrder);
-router.get("/order/:orderId", OrderController.readOrder);
+router.post("/order", AuthMiddleware.execute,OrderController.createOrder);
+router.get("/order/:orderId", AuthMiddleware.execute, OrderController.readOrder);
 router.get("/orders", OrderController.readAllOrders);
-router.put("/order/:orderId", OrderController.updateOrder);
-router.delete("/order/:orderId", OrderController.deleteOrder);
+router.put("/order/:orderId", AuthMiddleware.execute, OrderController.updateOrder);
+router.delete("/order/:orderId", AuthMiddleware.execute, AuthMiddleware.execute, OrderController.deleteOrder);
 
 export default router;
