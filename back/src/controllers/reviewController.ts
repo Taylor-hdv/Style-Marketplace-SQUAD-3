@@ -12,12 +12,6 @@ export class ReviewController {
                 productId
             } = req.body;
 
-            if (rating < 1 || rating > 5) {
-                return resp.status(400).json({
-                    message: "A nota deve ser entre 1 e 5."
-                });
-            }
-
             const foundUser = await prisma.user.findUnique({
                 where: {
                     id: String(userId)
@@ -117,12 +111,6 @@ export class ReviewController {
         try {
             const { reviewId } = req.params;
             const { rating, text } = req.body;
-
-            if (rating !== undefined && (rating < 1 || rating > 5)) {
-                return resp.status(400).json({
-                    message: "A nota deve ser entre 1 e 5."
-                });
-            }
 
             const updateData = {
                 ...(rating !== undefined && { rating }),

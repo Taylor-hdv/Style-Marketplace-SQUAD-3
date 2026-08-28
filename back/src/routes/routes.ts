@@ -12,6 +12,8 @@ import {telephoneSchema} from "../config/TelephoneValidator"
 import {createVariantSchema,updateVariantSchema} from "../config/VariantValidator"
 import { CartController } from "../controllers/CartController";
 import { OrderController } from "../controllers/OrderController";
+import { createProductSchema, updateProductSchema } from "../schemas/productSchema";
+import { createReviewSchema, updateReviewSchema } from "../schemas/reviewSchema";
 
 const router = Router();
 
@@ -23,10 +25,10 @@ router.get("/users", UserController.readAllUsers);
 router.put("/user/:userId",  AuthMiddleware.execute,validate(updateUserSchema),UserController.updateUser);
 router.delete("/user/:userId", AuthMiddleware.execute, UserController.deleteUser);
 
-router.post("/product", ProductController.createProduct);
+router.post("/product", validate(createProductSchema), ProductController.createProduct);
 router.get("/product/:productId", ProductController.readProduct);
 router.get("/products", ProductController.readAllProducts);
-router.put("/product/:productId", ProductController.updateProduct);
+router.put("/product/:productId", validate(updateProductSchema), ProductController.updateProduct);
 router.delete("/product/:productId", ProductController.deleteProduct);
 
 router.post("/variant", validate(createVariantSchema), VariantController.createVariant);
@@ -44,10 +46,10 @@ router.delete("/category/:categoryId", CategoryController.deleteCategory);
 router.post("/category/:categoryId/product/:productId", CategoryController.addProductToCategory);
 router.delete("/category/:categoryId/product/:productId", CategoryController.removeProductFromCategory);
 
-router.post("/review", ReviewController.createReview);
+router.post("/review", validate(createReviewSchema), ReviewController.createReview);
 router.get("/review/:reviewId", ReviewController.readReview);
 router.get("/reviews", ReviewController.readAllReviews);
-router.put("/review/:reviewId", ReviewController.updateReview);
+router.put("/review/:reviewId", validate(updateReviewSchema), ReviewController.updateReview);
 router.delete("/review/:reviewId", ReviewController.deleteReview);
 
 

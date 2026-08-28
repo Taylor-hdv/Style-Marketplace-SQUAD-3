@@ -30,6 +30,7 @@ export class ProductController {
                 message: "Produto criado com sucesso.",
                 product: createdProduct
             });
+            
         } catch (error: any) {
             return resp.status(500).json({
                 message: error.message
