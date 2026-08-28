@@ -1,0 +1,3641 @@
+{
+  "info": {
+    "_postman_id": "03e44e82-314f-40c0-b7d5-4dd80be9064d",
+    "name": "TT PSI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "47127159",
+    "_collection_link": "https://go.postman.co/collection/47127159-03e44e82-314f-40c0-b7d5-4dd80be9064d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\": \"Alexandre Villa verde\",\r\n    \"lastName\": \"Horta\",\r\n    \"email\": \"AlexandrevvReis@gmail.com\",\r\n    \"password\": \"Belinha123!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/user",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "user"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create User",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"firstName\": \"Taylor\",\r\n    \"lastName\": \"Horta\",\r\n    \"email\": \"taylorhorta@gmail.com\",\r\n    \"password\": \"Belinha123!\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/user",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "user"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "573"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"23d-WzKmXs4rT11tt4+9mqC5K9VbTPQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 05:52:42 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"Message\": \"Usuariario criado com sucesso \",\n    \"id\": {\n        \"id\": \"cmtcjbw5c0001x0od69cuhbny\",\n        \"firstName\": \"Taylor\",\n        \"lastName\": \"Horta\",\n        \"email\": \"taylorhorta@gmail.com\",\n        \"smsNotification\": false,\n        \"marketingEmails\": false,\n        \"orderUpdates\": true,\n        \"newArrivals\": false,\n        \"gender\": null,\n        \"salesAlerts\": false,\n        \"birthDate\": null,\n        \"memberSince\": \"2026-08-28T00:00:00.000Z\",\n        \"emailNotification\": true,\n        \"hash\": \"9e0a01a07ce73b6e64d127cc9b451baf04dc6c8f01969adf4603f7090056a482803ccab219ebda69de18fd26a0b385b9c7f9c7108ddd34e1f39786be41663f87\",\n        \"salt\": \"dbda8a5dc4519a67b06fb21bd7d879fb4680ce1d665f9c5c7d7bb656e9108be0\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"AlexandrevvReis@gmail.com\",\r\n    \"password\": \"Belinha123!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/login",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Login User",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"taylorhorta@gmail.com\",\r\n    \"password\": \"Belinha123!\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/login",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "841"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"349-rzfxCxV0rBlmXXH+ZgXxpdWgNlw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 06:32:45 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"token\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOm51bGx9LCJpYXQiOjE3ODc4OTg3NjUsImV4cCI6MTc4ODUwMzU2NX0.vns7ZiiJ0kolkb7OcQhTCvP40ta0XdEmad-3Es2fIMuwrvEIAFEqNrXeq_ENZbjHCPOk5Lp38lvRWXCCqgMt3MQSnPh8AdccWWoge0hyVXFxD9KZqkQr_fESGHfuRFSBQOBbbnnnJimJyKndiRGeOlXaR-wRxoQRRmnnn7F3-ykOH_n2Y5mdRg_ZZNbjTpvXQ8DodzFBhGqs-49j17zztJ19N1D2cX90xUFDBKsjyLZ2XxSagAnRTK2OfzufSA9f9pH0Wk66k_i0CKcx3xN4J8jalVKli_kIrtICsy4FyMhEuiYb4rTs0EFSxJk44UJYVZwK9VoO_g2uMFe25M0znuoAP5wrwjMjJMdWNAcBJ6YW27D-eYhaDEEN4xgtzXJNdsbt0n4b9-zR_FJr7wOoTHqLaNauSAygP6C7P8bNmLfRXqY0315TkQqsVXXuASELkcmQHA35h_2QKWRBGo7Rc1ou_QuqXFpYN3JFyEcl4Gbdi1xIlnrkbvxtsOqUiHr_wy4PZRXML_DxFJAJ4KARFleS7eQ7w_v478MGf-gjGa7ah-EL-V2HHQEDmKAI33F074jOlvpYTrlsTSZF-hq2NeaM2C1heuq_1ZfUodSlNSJizkf8pb2rN7E426-ToY1pfRjR-SSalaJ1Jd8jFa_RDKdxlMjAXQj-rts0Reb0hEg\",\n    \"userId\": \"cmtcjbw5c0001x0od69cuhbny\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Read User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOm51bGx9LCJpYXQiOjE3ODc4OTkzNTgsImV4cCI6MTc4ODUwNDE1OH0.mnxQbhO-8ssDBrZwz9nVKJzW5B7xMwxAN3cFbEeSwiZW0HiIya33LIHUSkTohF8LaJdjht1VjoWEcalerWSf8XXC2VQ8JqAN7TmdU_KaiJLbEzBQS6H6N-pIuvjzBLRBbLtPR2CEEJtr8LqTFB4Ui1sQGsw4-MgbbvsN9XD1kEAc_U2froc-hFHEY0ONeHhgZymX5OKg2PEevAVUFjg1WRifdXTbS1mPnMwao6CEDiFVZLGOwPyjiomoSW3DRtLSoO1XJXhoX4Qe5483Ns4m0ytjO9swpM-t5DO5pzmN2y7P4C2DVKIbmwif7Yjz4-VVzR_nxwX_H6YCM8IKDZOfQt-u7C0f4gobS50WsUU9un48KqTTghbFaUMQz6VQKYHodhn6nXigt8hpKHW60uy3JfNtHrktGAIwevoRR3mKI5oxG2DDv00g6mOxHOX9znZhx9gqdFRSlS6geTaQITzfRwjkdbN5wqCCbjQVjLtbjgYe9lK0YI02db7qcqom6C3AbJgvrueGw7xwbXfgWBgXHorQlfuaVG-pqb8zryQWToJylvXG38XlmOCvKkQx-fGCmZYZFmeTn17iaOtDzN547Vj-Pc63GZIGUdWJ-Wu3WL2WDDZ9fxd5M_u4_b05j9QVGsIL9BEZekx_qptrkI3cy8XIF-py9NYSCTbtAdKk0_I",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/user/:userId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "user",
+                ":userId"
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "cmtcjbw5c0001x0od69cuhbny"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Read User",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/user/:userId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "user",
+                    ":userId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "userId",
+                      "value": "cmtcjbw5c0001x0od69cuhbny"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "659"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"293-9PHgr6WN+dBs35d2LNd8RMmCGsw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 06:44:15 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": \"cmtcjbw5c0001x0od69cuhbny\",\n    \"firstName\": \"Taylor\",\n    \"lastName\": \"Horta\",\n    \"email\": \"taylorhorta@gmail.com\",\n    \"smsNotification\": false,\n    \"marketingEmails\": false,\n    \"orderUpdates\": true,\n    \"newArrivals\": false,\n    \"gender\": null,\n    \"salesAlerts\": false,\n    \"birthDate\": null,\n    \"memberSince\": \"2026-08-28T00:00:00.000Z\",\n    \"emailNotification\": true,\n    \"hash\": \"9e0a01a07ce73b6e64d127cc9b451baf04dc6c8f01969adf4603f7090056a482803ccab219ebda69de18fd26a0b385b9c7f9c7108ddd34e1f39786be41663f87\",\n    \"salt\": \"dbda8a5dc4519a67b06fb21bd7d879fb4680ce1d665f9c5c7d7bb656e9108be0\",\n    \"cart\": {\n        \"id\": \"cmtcjbw5g0002x0odfijmvivs\",\n        \"totalPrice\": 0,\n        \"shipping\": 0,\n        \"totalQuantity\": 0,\n        \"userId\": \"cmtcjbw5c0001x0od69cuhbny\"\n    },\n    \"order\": []\n}"
+            }
+          ]
+        },
+        {
+          "name": "Read all Users",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/users",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Read all Users",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/users",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "525"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"20d-GR6pyK+dYwIS7sSLsUHO6iPfe5M\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 06:44:39 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": \"cmtcjbw5c0001x0od69cuhbny\",\n        \"firstName\": \"Taylor\",\n        \"lastName\": \"Horta\",\n        \"email\": \"taylorhorta@gmail.com\",\n        \"smsNotification\": false,\n        \"marketingEmails\": false,\n        \"orderUpdates\": true,\n        \"newArrivals\": false,\n        \"gender\": null,\n        \"salesAlerts\": false,\n        \"birthDate\": null,\n        \"memberSince\": \"2026-08-28T00:00:00.000Z\",\n        \"emailNotification\": true,\n        \"hash\": \"9e0a01a07ce73b6e64d127cc9b451baf04dc6c8f01969adf4603f7090056a482803ccab219ebda69de18fd26a0b385b9c7f9c7108ddd34e1f39786be41663f87\",\n        \"salt\": \"dbda8a5dc4519a67b06fb21bd7d879fb4680ce1d665f9c5c7d7bb656e9108be0\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOm51bGx9LCJpYXQiOjE3ODc4OTkzNTgsImV4cCI6MTc4ODUwNDE1OH0.mnxQbhO-8ssDBrZwz9nVKJzW5B7xMwxAN3cFbEeSwiZW0HiIya33LIHUSkTohF8LaJdjht1VjoWEcalerWSf8XXC2VQ8JqAN7TmdU_KaiJLbEzBQS6H6N-pIuvjzBLRBbLtPR2CEEJtr8LqTFB4Ui1sQGsw4-MgbbvsN9XD1kEAc_U2froc-hFHEY0ONeHhgZymX5OKg2PEevAVUFjg1WRifdXTbS1mPnMwao6CEDiFVZLGOwPyjiomoSW3DRtLSoO1XJXhoX4Qe5483Ns4m0ytjO9swpM-t5DO5pzmN2y7P4C2DVKIbmwif7Yjz4-VVzR_nxwX_H6YCM8IKDZOfQt-u7C0f4gobS50WsUU9un48KqTTghbFaUMQz6VQKYHodhn6nXigt8hpKHW60uy3JfNtHrktGAIwevoRR3mKI5oxG2DDv00g6mOxHOX9znZhx9gqdFRSlS6geTaQITzfRwjkdbN5wqCCbjQVjLtbjgYe9lK0YI02db7qcqom6C3AbJgvrueGw7xwbXfgWBgXHorQlfuaVG-pqb8zryQWToJylvXG38XlmOCvKkQx-fGCmZYZFmeTn17iaOtDzN547Vj-Pc63GZIGUdWJ-Wu3WL2WDDZ9fxd5M_u4_b05j9QVGsIL9BEZekx_qptrkI3cy8XIF-py9NYSCTbtAdKk0_I",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\":\"zé\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/user/:userId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "user",
+                ":userId"
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "cmtcjbw5c0001x0od69cuhbny"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update User",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"firstName\":\"zé\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/user/:userId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "user",
+                    ":userId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "userId",
+                      "value": "cmtcjbw5c0001x0od69cuhbny"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "308"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"134-+Jgup+b0v7oqROMrSDfV/2wONnA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 06:45:50 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Usuário atualizado com sucesso\",\n    \"user\": {\n        \"firstName\": \"zé\",\n        \"lastName\": \"Horta\",\n        \"email\": \"taylorhorta@gmail.com\",\n        \"smsNotification\": false,\n        \"marketingEmails\": false,\n        \"orderUpdates\": true,\n        \"newArrivals\": false,\n        \"gender\": null,\n        \"birthDate\": null,\n        \"memberSince\": \"2026-08-28T00:00:00.000Z\",\n        \"emailNotification\": true\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOm51bGx9LCJpYXQiOjE3ODc5MDU5NzIsImV4cCI6MTc4ODUxMDc3Mn0.DRHLL_TN2b8yTUsnsi4tvyo1jgFY1m9ZEjSjV8LUC_Qykjfh6flVFpMtahJearYdOKM1pN5uqzRXqfG6w8NcTIzW1Y4DshD6rBOVAemXqygVbBSHrolsr97K30i-AHeAGA4Eudoc2gaIYvTCsPzpdeR7CiGe_GtfSE6JeO5IHTVISThHAP6mxdX3YaZiO79_7XFetaB0nqX33tc5mOjsatNcPxbJEwNazq09yTnHnCdU57-3-VHYGHg6CB9JRPgp-577c6DZZklExQY-sKv2NwMLM3TLT2omWuegfw2k32LR5Uz2RHeHmUggdG9O4IqhBi_Q20PaQQfKBgOWmB7yqiCb8Ryz6dBrLCFwPrKIOpVZvwnSJ4qH7MLNliIBmDBc5AuteUQHHQ-sRB1FQKLWlVT8Q3J-DOpSBHhSx2daG-g68_CzwGfcsqsz7i3jTPX8RnHMgjPasvgVUHGpbuEtNsainD8hLdw3p0aPHVxHZKlVVoZgdCfhPAOmmDkYdXyNqjZJNpnKf4sEa6T9VXazcaVMAMrjbAythrWWRaDRbteqTsU8TNwmWWwH_4DovZzI-_DRP-PgWfxUxAU8Y_kDO-8uK0u5xd5SrYUDiNgU2AEh7DvJqNSnMVz5v8zzdwK-haniTGRav1dk5m0_b51IHTBt-5pZZj7uNQroRyOTnho",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/user/:userId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "user",
+                ":userId"
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "cmtcmzcfb0006gkoduxstfdfg"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete User",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/user/:userId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "user",
+                    ":userId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "userId",
+                      "value": "cmtcmzcfb0006gkoduxstfdfg"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "43"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2b-nhSv4q4D4tc6ExOi88H/Trmj4Pw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 08:33:29 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Usuário deletado com sucesso\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "item": [
+        {
+          "name": "Create Product",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"Camisa da Adidas\",\r\n    \"discount\": 0,\r\n    \"description\": \"Camisa da adidas legal\",\r\n    \"tag\": \"Man's Fashion\",\r\n    \"specification\":\"Camisa feita em Bangladesh com tecido premium\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/product",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "product"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Product",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\":\"Camisa da Adidas\",\r\n    \"discount\": 0,\r\n    \"description\": \"Camisa da adidas legal\",\r\n    \"tag\": \"Man's Fashion\",\r\n    \"specification\":\"Camisa feita em Bangladesh com tecido premium\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/product",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "product"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "250"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"fa-JXQs88xCvEwaqvls5NSLETrgk4Q\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 06:46:55 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Produto criado com sucesso.\",\n    \"product\": {\n        \"id\": \"cmtcl9ogx0000m0odtwaanxpp\",\n        \"name\": \"Camisa da Adidas\",\n        \"description\": \"Camisa da adidas legal\",\n        \"discount\": 0,\n        \"tag\": \"Man's Fashion\",\n        \"specification\": \"Camisa feita em Bangladesh com tecido premium\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Read Product",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/product/:productId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "product",
+                ":productId"
+              ],
+              "variable": [
+                {
+                  "key": "productId",
+                  "value": "cmtcl9ogx0000m0odtwaanxpp"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Read Product",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/product/:productId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "product",
+                    ":productId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "productId",
+                      "value": "cmtcl9ogx0000m0odtwaanxpp"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "235"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"eb-TvgwtOKJU2ZZJRxJ+JFYgbdNQe0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 06:47:24 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": \"cmtcl9ogx0000m0odtwaanxpp\",\n    \"name\": \"Camisa da Adidas\",\n    \"description\": \"Camisa da adidas legal\",\n    \"discount\": 0,\n    \"tag\": \"Man's Fashion\",\n    \"specification\": \"Camisa feita em Bangladesh com tecido premium\",\n    \"variants\": [],\n    \"productCategories\": []\n}"
+            }
+          ]
+        },
+        {
+          "name": "Read all Products",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/products",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "products"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Read all Products",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/products",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "products"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "2833"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"b11-K43/kamc36huQ/goMQ/IXo8Eq5g\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 06:48:55 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": \"cmtcjabec0000x0odlm6gg1h3\",\n        \"name\": \"Camisa da Adidas\",\n        \"description\": \"Camisa da adidas legal\",\n        \"discount\": 0,\n        \"tag\": \"Man's Fashion\",\n        \"specification\": \"Camisa feita em Bangladesh com tecido premium\",\n        \"variants\": [],\n        \"productCategories\": []\n    },\n    {\n        \"id\": \"cmtcl9ogx0000m0odtwaanxpp\",\n        \"name\": \"Camisa da Adidas\",\n        \"description\": \"Camisa da adidas legal\",\n        \"discount\": 0,\n        \"tag\": \"Man's Fashion\",\n        \"specification\": \"Camisa feita em Bangladesh com tecido premium\",\n        \"variants\": [],\n        \"productCategories\": []\n    },\n    {\n        \"id\": \"cmtclbkdl0001e8odwjzt6aid\",\n        \"name\": \"Basic T-Shirt\",\n        \"description\": \"Basic cotton t-shirt\",\n        \"discount\": 10,\n        \"tag\": \"clothing\",\n        \"specification\": \"100% cotton\",\n        \"variants\": [\n            {\n                \"id\": \"cmtclbkdt0002e8odi2m1zbae\",\n                \"color\": \"Black\",\n                \"size\": \"M\",\n                \"quantity\": 20,\n                \"price\": \"99.90000000000001\",\n                \"productId\": \"cmtclbkdl0001e8odwjzt6aid\"\n            }\n        ],\n        \"productCategories\": [\n            {\n                \"productId\": \"cmtclbkdl0001e8odwjzt6aid\",\n                \"categoryId\": \"cmtclbkei000be8odl60iw6jc\",\n                \"category\": {\n                    \"name\": \"Clothing\"\n                }\n            }\n        ]\n    },\n    {\n        \"id\": \"cmtclbkdx0003e8odcqru4h0t\",\n        \"name\": \"Cashmere Sweater\",\n        \"description\": \"Comfortable casual Sweater\",\n        \"discount\": 15,\n        \"tag\": \"clothing\",\n        \"specification\": \"Cashmere tissue\",\n        \"variants\": [\n            {\n                \"id\": \"cmtclbke10004e8odnub3y1jq\",\n                \"color\": \"Brown\",\n                \"size\": \"g\",\n                \"quantity\": 15,\n                \"price\": \"199.9\",\n                \"productId\": \"cmtclbkdx0003e8odcqru4h0t\"\n            },\n            {\n                \"id\": \"cmtclbo5a0000poodd4xq00fn\",\n                \"color\": \"Brown\",\n                \"size\": \"g\",\n                \"quantity\": 15,\n                \"price\": \"199.9\",\n                \"productId\": \"cmtclbkdx0003e8odcqru4h0t\"\n            }\n        ],\n        \"productCategories\": [\n            {\n                \"productId\": \"cmtclbkdx0003e8odcqru4h0t\",\n                \"categoryId\": \"cmtclbkei000be8odl60iw6jc\",\n                \"category\": {\n                    \"name\": \"Clothing\"\n                }\n            }\n        ]\n    },\n    {\n        \"id\": \"cmtclbke30005e8odvgc74tn3\",\n        \"name\": \"Slim Jeans\",\n        \"description\": \"Slim fit denim jeans\",\n        \"discount\": 5,\n        \"tag\": \"clothing\",\n        \"specification\": \"Denim\",\n        \"variants\": [\n            {\n                \"id\": \"cmtclbke60006e8odydegzxqn\",\n                \"color\": \"Blue\",\n                \"size\": \"42\",\n                \"quantity\": 15,\n                \"price\": \"149.9\",\n                \"productId\": \"cmtclbke30005e8odvgc74tn3\"\n            }\n        ],\n        \"productCategories\": [\n            {\n                \"productId\": \"cmtclbke30005e8odvgc74tn3\",\n                \"categoryId\": \"cmtclbkei000be8odl60iw6jc\",\n                \"category\": {\n                    \"name\": \"Clothing\"\n                }\n            }\n        ]\n    },\n    {\n        \"id\": \"cmtclbke70007e8odezyy6bug\",\n        \"name\": \"Running Shoes\",\n        \"description\": \"Running shoes for daily activities\",\n        \"discount\": 20,\n        \"tag\": \"shoes\",\n        \"specification\": \"Lightweight material\",\n        \"variants\": [\n            {\n                \"id\": \"cmtclbke90008e8odjwirjqje\",\n                \"color\": \"White\",\n                \"size\": \"41\",\n                \"quantity\": 10,\n                \"price\": \"249.9\",\n                \"productId\": \"cmtclbke70007e8odezyy6bug\"\n            }\n        ],\n        \"productCategories\": [\n            {\n                \"productId\": \"cmtclbke70007e8odezyy6bug\",\n                \"categoryId\": \"cmtclbkei000be8odl60iw6jc\",\n                \"category\": {\n                    \"name\": \"Clothing\"\n                }\n            }\n        ]\n    },\n    {\n        \"id\": \"cmtclbkeb0009e8odr0hxxhp5\",\n        \"name\": \"Casual Jacket\",\n        \"description\": \"Casual jacket for everyday use\",\n        \"discount\": 12,\n        \"tag\": \"clothing\",\n        \"specification\": \"Polyester\",\n        \"variants\": [\n            {\n                \"id\": \"cmtclbkee000ae8od416ucsw7\",\n                \"color\": \"Green\",\n                \"size\": \"M\",\n                \"quantity\": 8,\n                \"price\": \"219.9\",\n                \"productId\": \"cmtclbkeb0009e8odr0hxxhp5\"\n            }\n        ],\n        \"productCategories\": [\n            {\n                \"productId\": \"cmtclbkeb0009e8odr0hxxhp5\",\n                \"categoryId\": \"cmtclbkei000be8odl60iw6jc\",\n                \"category\": {\n                    \"name\": \"Clothing\"\n                }\n            }\n        ]\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Camisa falsificada da adidas\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/product/:productId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "product",
+                ":productId"
+              ],
+              "variable": [
+                {
+                  "key": "productId",
+                  "value": "cmtcl9ogx0000m0odtwaanxpp"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Product",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Camisa falsificada da adidas\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/product/:productId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "product",
+                    ":productId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "productId",
+                      "value": "cmtcl9ogx0000m0odtwaanxpp"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "266"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"10a-B59/TPRKO6vG0Zg2+IX8EaTdvYc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 06:51:53 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Produto atualizado com sucesso.\",\n    \"product\": {\n        \"id\": \"cmtcl9ogx0000m0odtwaanxpp\",\n        \"name\": \"Camisa falsificada da adidas\",\n        \"description\": \"Camisa da adidas legal\",\n        \"discount\": 0,\n        \"tag\": \"Man's Fashion\",\n        \"specification\": \"Camisa feita em Bangladesh com tecido premium\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/product/:productId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "product",
+                ":productId"
+              ],
+              "variable": [
+                {
+                  "key": "productId",
+                  "value": "cmtclbkdx0003e8odcqru4h0t"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Product",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/product/:productId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "product",
+                    ":productId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "productId",
+                      "value": "cmtclbkdx0003e8odcqru4h0t"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "43"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2b-8zrinJdDa620IXAOu9tBxIxpjPc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 08:17:36 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Produto deletado com sucesso.\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Variant",
+      "item": [
+        {
+          "name": "Create Variant",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"color\": \"BLACK\",\r\n    \"size\": \"GG\",\r\n    \"quantity\": 322,\r\n    \"price\": 30.54,\r\n    \"productId\":\"cmtcl9ogx0000m0odtwaanxpp\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/variant",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "variant"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Variant",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"color\": \"BLACK\",\r\n    \"size\": \"GG\",\r\n    \"quantity\": 322,\r\n    \"price\": 30.54,\r\n    \"productId\":\"cmtcl9ogx0000m0odtwaanxpp\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/variant",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "variant"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "186"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"ba-KzfLmaxF+he4/eSC95TWKyKG0Vw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 06:53:44 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Variante criada com sucesso.\",\n    \"variant\": {\n        \"id\": \"cmtclifpg0000gkodhcdcarbu\",\n        \"color\": \"BLACK\",\n        \"size\": \"GG\",\n        \"quantity\": 322,\n        \"price\": \"30.54\",\n        \"productId\": \"cmtcl9ogx0000m0odtwaanxpp\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Read Variant",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/variant/:variantId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "variant",
+                ":variantId"
+              ],
+              "variable": [
+                {
+                  "key": "variantId",
+                  "value": "cmtclifpg0000gkodhcdcarbu"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Read Variant",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/variant/:variantId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "variant",
+                    ":variantId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "variantId",
+                      "value": "cmtclifpg0000gkodhcdcarbu"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "354"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"162-ioMhg4VcRn65+lGQKGqJPL1cWx8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 06:54:21 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": \"cmtclifpg0000gkodhcdcarbu\",\n    \"color\": \"BLACK\",\n    \"size\": \"GG\",\n    \"quantity\": 322,\n    \"price\": \"30.54\",\n    \"productId\": \"cmtcl9ogx0000m0odtwaanxpp\",\n    \"product\": {\n        \"id\": \"cmtcl9ogx0000m0odtwaanxpp\",\n        \"name\": \"Camisa falsificada da adidas\",\n        \"description\": \"Camisa da adidas legal\",\n        \"discount\": 0,\n        \"tag\": \"Man's Fashion\",\n        \"specification\": \"Camisa feita em Bangladesh com tecido premium\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Read all Variants",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/variants",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "variants"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Read all Variants",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/variants",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "variants"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "2200"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"898-CscpLwrXWfhZCOeWzyPqvAXWZX4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 06:54:35 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": \"cmtclbkdt0002e8odi2m1zbae\",\n        \"color\": \"Black\",\n        \"size\": \"M\",\n        \"quantity\": 20,\n        \"price\": \"99.90000000000001\",\n        \"productId\": \"cmtclbkdl0001e8odwjzt6aid\",\n        \"product\": {\n            \"id\": \"cmtclbkdl0001e8odwjzt6aid\",\n            \"name\": \"Basic T-Shirt\",\n            \"description\": \"Basic cotton t-shirt\",\n            \"discount\": 10,\n            \"tag\": \"clothing\",\n            \"specification\": \"100% cotton\"\n        }\n    },\n    {\n        \"id\": \"cmtclbke10004e8odnub3y1jq\",\n        \"color\": \"Brown\",\n        \"size\": \"g\",\n        \"quantity\": 15,\n        \"price\": \"199.9\",\n        \"productId\": \"cmtclbkdx0003e8odcqru4h0t\",\n        \"product\": {\n            \"id\": \"cmtclbkdx0003e8odcqru4h0t\",\n            \"name\": \"Cashmere Sweater\",\n            \"description\": \"Comfortable casual Sweater\",\n            \"discount\": 15,\n            \"tag\": \"clothing\",\n            \"specification\": \"Cashmere tissue\"\n        }\n    },\n    {\n        \"id\": \"cmtclbke60006e8odydegzxqn\",\n        \"color\": \"Blue\",\n        \"size\": \"42\",\n        \"quantity\": 15,\n        \"price\": \"149.9\",\n        \"productId\": \"cmtclbke30005e8odvgc74tn3\",\n        \"product\": {\n            \"id\": \"cmtclbke30005e8odvgc74tn3\",\n            \"name\": \"Slim Jeans\",\n            \"description\": \"Slim fit denim jeans\",\n            \"discount\": 5,\n            \"tag\": \"clothing\",\n            \"specification\": \"Denim\"\n        }\n    },\n    {\n        \"id\": \"cmtclbke90008e8odjwirjqje\",\n        \"color\": \"White\",\n        \"size\": \"41\",\n        \"quantity\": 10,\n        \"price\": \"249.9\",\n        \"productId\": \"cmtclbke70007e8odezyy6bug\",\n        \"product\": {\n            \"id\": \"cmtclbke70007e8odezyy6bug\",\n            \"name\": \"Running Shoes\",\n            \"description\": \"Running shoes for daily activities\",\n            \"discount\": 20,\n            \"tag\": \"shoes\",\n            \"specification\": \"Lightweight material\"\n        }\n    },\n    {\n        \"id\": \"cmtclbkee000ae8od416ucsw7\",\n        \"color\": \"Green\",\n        \"size\": \"M\",\n        \"quantity\": 8,\n        \"price\": \"219.9\",\n        \"productId\": \"cmtclbkeb0009e8odr0hxxhp5\",\n        \"product\": {\n            \"id\": \"cmtclbkeb0009e8odr0hxxhp5\",\n            \"name\": \"Casual Jacket\",\n            \"description\": \"Casual jacket for everyday use\",\n            \"discount\": 12,\n            \"tag\": \"clothing\",\n            \"specification\": \"Polyester\"\n        }\n    },\n    {\n        \"id\": \"cmtclbo5a0000poodd4xq00fn\",\n        \"color\": \"Brown\",\n        \"size\": \"g\",\n        \"quantity\": 15,\n        \"price\": \"199.9\",\n        \"productId\": \"cmtclbkdx0003e8odcqru4h0t\",\n        \"product\": {\n            \"id\": \"cmtclbkdx0003e8odcqru4h0t\",\n            \"name\": \"Cashmere Sweater\",\n            \"description\": \"Comfortable casual Sweater\",\n            \"discount\": 15,\n            \"tag\": \"clothing\",\n            \"specification\": \"Cashmere tissue\"\n        }\n    },\n    {\n        \"id\": \"cmtclifpg0000gkodhcdcarbu\",\n        \"color\": \"BLACK\",\n        \"size\": \"GG\",\n        \"quantity\": 322,\n        \"price\": \"30.54\",\n        \"productId\": \"cmtcl9ogx0000m0odtwaanxpp\",\n        \"product\": {\n            \"id\": \"cmtcl9ogx0000m0odtwaanxpp\",\n            \"name\": \"Camisa falsificada da adidas\",\n            \"description\": \"Camisa da adidas legal\",\n            \"discount\": 0,\n            \"tag\": \"Man's Fashion\",\n            \"specification\": \"Camisa feita em Bangladesh com tecido premium\"\n        }\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Update Variant",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"color\":\"PURPLE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/variant/:variantId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "variant",
+                ":variantId"
+              ],
+              "variable": [
+                {
+                  "key": "variantId",
+                  "value": "cmtclifpg0000gkodhcdcarbu"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Variant",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"color\":\"PURPLE\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/variant/:variantId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "variant",
+                    ":variantId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "variantId",
+                      "value": "cmtclifpg0000gkodhcdcarbu"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "191"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"bf-6Up+7YML/a0soT/6P5UAq9pLUrc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 06:54:59 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Variante atualizada com sucesso.\",\n    \"product\": {\n        \"id\": \"cmtclifpg0000gkodhcdcarbu\",\n        \"color\": \"PURPLE\",\n        \"size\": \"GG\",\n        \"quantity\": 322,\n        \"price\": \"30.54\",\n        \"productId\": \"cmtcl9ogx0000m0odtwaanxpp\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Variant",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOm51bGx9LCJpYXQiOjE3ODc5MDQ0MTksImV4cCI6MTc4ODUwOTIxOX0.dOMyVAojZPMv1o9ISjyCVHuHCycdO0i8qnlZ3q3xyKtc2EnQgf4jRMfRV8HUaFi-zeGGzzTuDL8qhBK9io_D9lWB9SMn8KgwzMfiDUS5FN3r_i9oMWvEuwHqfsxPlgjtSFtwTMEcbfks94VVc8gJy675mV6q6N67yaXZmQi8Dvu0zucI_6G-s0GHnhL47c48AzzIHmMuw6ptnnJs2Og7t6ndGUWVNoZll-3K3M53PFXTcPr0gLRazruXTn9lGWp06OXbPdd5TSHD_0Lc9-ozyFmCGNaeJu8h95xuCEkjsr7IKz4nkMPScs8g3k8GZaohLrqweyublidcbzwHz0R4Qbz3I0D0bDUb_hIAXmtvnsQnvqLmbtnj3iQOOixyeMotliG3XOMwVAvDAK0KjtilarT7F8yXoecJe8JZr1dbZC6KkSLfWPBcOmfSQa6T0OzJtALbqzEBSzSTexkhXKc99xi4zOWQoWcS9IhCglcZmPL-COUPqRRZ2ZoRREWI_BpB1dJVaK72DMtWWWdLIjVrjz0iPT0UngvNi1_H6rZK5psCg7dS5MkEklMOfEUXlvCfBRt2R5xvVIehm2flzePjKHlUaZxcoZFMGxZQ4n7xpxwFuFDv57cyxxiO2hdDeeD_vU2_JwZH52fgLS8R6LIPrdsP3q_p4qlAQK1h3yUjhJU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/variant/:variantId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "variant",
+                ":variantId"
+              ],
+              "variable": [
+                {
+                  "key": "variantId",
+                  "value": "cmtclbkdt0002e8odi2m1zbae"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Variant",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/variant/:variantId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "variant",
+                    ":variantId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "variantId",
+                      "value": "cmtclbkdt0002e8odi2m1zbae"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "43"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2b-l76b4gZty7KoyvtEDtfDZ3AU8dg\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 08:21:10 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Variante deletada com sucesso\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Telephone",
+      "item": [
+        {
+          "name": "Upsert Telephone",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOm51bGx9LCJpYXQiOjE3ODc4OTkzNTgsImV4cCI6MTc4ODUwNDE1OH0.mnxQbhO-8ssDBrZwz9nVKJzW5B7xMwxAN3cFbEeSwiZW0HiIya33LIHUSkTohF8LaJdjht1VjoWEcalerWSf8XXC2VQ8JqAN7TmdU_KaiJLbEzBQS6H6N-pIuvjzBLRBbLtPR2CEEJtr8LqTFB4Ui1sQGsw4-MgbbvsN9XD1kEAc_U2froc-hFHEY0ONeHhgZymX5OKg2PEevAVUFjg1WRifdXTbS1mPnMwao6CEDiFVZLGOwPyjiomoSW3DRtLSoO1XJXhoX4Qe5483Ns4m0ytjO9swpM-t5DO5pzmN2y7P4C2DVKIbmwif7Yjz4-VVzR_nxwX_H6YCM8IKDZOfQt-u7C0f4gobS50WsUU9un48KqTTghbFaUMQz6VQKYHodhn6nXigt8hpKHW60uy3JfNtHrktGAIwevoRR3mKI5oxG2DDv00g6mOxHOX9znZhx9gqdFRSlS6geTaQITzfRwjkdbN5wqCCbjQVjLtbjgYe9lK0YI02db7qcqom6C3AbJgvrueGw7xwbXfgWBgXHorQlfuaVG-pqb8zryQWToJylvXG38XlmOCvKkQx-fGCmZYZFmeTn17iaOtDzN547Vj-Pc63GZIGUdWJ-Wu3WL2WDDZ9fxd5M_u4_b05j9QVGsIL9BEZekx_qptrkI3cy8XIF-py9NYSCTbtAdKk0_I",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"phoneNumber\":\"992380014\",\r\n    \"DDD\": \"21\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/telephone/:userId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "telephone",
+                ":userId"
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "cmtcjbw5c0001x0od69cuhbny"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Upsert Telephone",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"phoneNumber\":\"992380014\",\r\n    \"DDD\": \"21\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/telephone/:userId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "telephone",
+                    ":userId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "userId",
+                      "value": "cmtcjbw5c0001x0od69cuhbny"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "161"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"a1-OmZ6CrWdiLIWJAOPKUL0Bl8O8HI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 06:58:33 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Telefone atualizado com sucesso\",\n    \"user\": {\n        \"id\": \"cmtclofq50001gkod5vluh9xy\",\n        \"DDD\": \"21\",\n        \"phoneNumber\": \"992380014\",\n        \"userId\": \"cmtcjbw5c0001x0od69cuhbny\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Read all Telephones",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/telephone",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "telephone"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Read all Telephones",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/telephone",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "telephone"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "110"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"6e-7cnzRQ2EeZgZtolNCLTIbEyf20o\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 06:59:00 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": \"cmtclofq50001gkod5vluh9xy\",\n        \"DDD\": \"21\",\n        \"phoneNumber\": \"992380014\",\n        \"userId\": \"cmtcjbw5c0001x0od69cuhbny\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Read Telephone",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/telephone/:userId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "telephone",
+                ":userId"
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "cmtcjbw5c0001x0od69cuhbny"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Read Telephone",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/telephone/:userId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "telephone",
+                    ":userId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "userId",
+                      "value": "cmtcjbw5c0001x0od69cuhbny"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "108"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"6c-GdMaqkq9pslLKPQA843Nt+ECDHY\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 06:59:26 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": \"cmtclofq50001gkod5vluh9xy\",\n    \"DDD\": \"21\",\n    \"phoneNumber\": \"992380014\",\n    \"userId\": \"cmtcjbw5c0001x0od69cuhbny\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Telephone",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/telephone/:userId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "telephone",
+                ":userId"
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "cmt06bvtg0000qouicd02njg0"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Category",
+      "item": [
+        {
+          "name": "Create Category",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Womens Fashion\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3333/category/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "category",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Category",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Womens Fashion\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3333/category/",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "category",
+                    ""
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "125"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"7d-3f+UVjJhRnVeiNzLqw+iwGJnQpE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 06:59:51 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Categoria criada com sucesso\",\n    \"category\": {\n        \"id\": \"cmtclqazm0003gkodnzh57m8l\",\n        \"name\": \"Womens Fashion\",\n        \"quantity\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Read Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3333/category/:categoryId",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "category",
+                ":categoryId"
+              ],
+              "variable": [
+                {
+                  "key": "categoryId",
+                  "value": "cmtclqazm0003gkodnzh57m8l"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Read Category",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3333/category/:categoryId",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "category",
+                    ":categoryId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "categoryId",
+                      "value": "cmtclqazm0003gkodnzh57m8l"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "94"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"5e-gt6BaFzWNw8Qb1hg+5oMqZvMo3Y\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 07:00:27 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": \"cmtclqazm0003gkodnzh57m8l\",\n    \"name\": \"Womens Fashion\",\n    \"quantity\": 0,\n    \"productCategories\": []\n}"
+            }
+          ]
+        },
+        {
+          "name": "Read all Categories",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Womens Fashion\",\r\n    \"quantity\":34\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3333/categories/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "categories",
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Read all Categories",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Womens Fashion\",\r\n    \"quantity\":34\r\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:3333/categories/",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "categories",
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1460"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"5b4-2Juxly92GBrJanBVvxqRUTWGCFM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 07:00:40 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": \"cmtclbkei000be8odl60iw6jc\",\n        \"name\": \"Clothing\",\n        \"quantity\": 5,\n        \"productCategories\": [\n            {\n                \"productId\": \"cmtclbkdl0001e8odwjzt6aid\",\n                \"categoryId\": \"cmtclbkei000be8odl60iw6jc\",\n                \"product\": {\n                    \"id\": \"cmtclbkdl0001e8odwjzt6aid\",\n                    \"name\": \"Basic T-Shirt\",\n                    \"description\": \"Basic cotton t-shirt\",\n                    \"discount\": 10,\n                    \"tag\": \"clothing\",\n                    \"specification\": \"100% cotton\"\n                }\n            },\n            {\n                \"productId\": \"cmtclbkdx0003e8odcqru4h0t\",\n                \"categoryId\": \"cmtclbkei000be8odl60iw6jc\",\n                \"product\": {\n                    \"id\": \"cmtclbkdx0003e8odcqru4h0t\",\n                    \"name\": \"Cashmere Sweater\",\n                    \"description\": \"Comfortable casual Sweater\",\n                    \"discount\": 15,\n                    \"tag\": \"clothing\",\n                    \"specification\": \"Cashmere tissue\"\n                }\n            },\n            {\n                \"productId\": \"cmtclbke30005e8odvgc74tn3\",\n                \"categoryId\": \"cmtclbkei000be8odl60iw6jc\",\n                \"product\": {\n                    \"id\": \"cmtclbke30005e8odvgc74tn3\",\n                    \"name\": \"Slim Jeans\",\n                    \"description\": \"Slim fit denim jeans\",\n                    \"discount\": 5,\n                    \"tag\": \"clothing\",\n                    \"specification\": \"Denim\"\n                }\n            },\n            {\n                \"productId\": \"cmtclbke70007e8odezyy6bug\",\n                \"categoryId\": \"cmtclbkei000be8odl60iw6jc\",\n                \"product\": {\n                    \"id\": \"cmtclbke70007e8odezyy6bug\",\n                    \"name\": \"Running Shoes\",\n                    \"description\": \"Running shoes for daily activities\",\n                    \"discount\": 20,\n                    \"tag\": \"shoes\",\n                    \"specification\": \"Lightweight material\"\n                }\n            },\n            {\n                \"productId\": \"cmtclbkeb0009e8odr0hxxhp5\",\n                \"categoryId\": \"cmtclbkei000be8odl60iw6jc\",\n                \"product\": {\n                    \"id\": \"cmtclbkeb0009e8odr0hxxhp5\",\n                    \"name\": \"Casual Jacket\",\n                    \"description\": \"Casual jacket for everyday use\",\n                    \"discount\": 12,\n                    \"tag\": \"clothing\",\n                    \"specification\": \"Polyester\"\n                }\n            }\n        ]\n    },\n    {\n        \"id\": \"cmtclqazm0003gkodnzh57m8l\",\n        \"name\": \"Womens Fashion\",\n        \"quantity\": 0,\n        \"productCategories\": []\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Update Category",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Men's Fashion\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3333/category/:categoryId",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "category",
+                ":categoryId"
+              ],
+              "variable": [
+                {
+                  "key": "categoryId",
+                  "value": "cmtclqazm0003gkodnzh57m8l"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Category",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Men's Fashion\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3333/category/:categoryId",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "category",
+                    ":categoryId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "categoryId",
+                      "value": "cmtclqazm0003gkodnzh57m8l"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "129"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"81-1iA9oskgSnONF549I6+l7TEAtdI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 07:01:04 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Categoria atualizada com sucesso.\",\n    \"category\": {\n        \"id\": \"cmtclqazm0003gkodnzh57m8l\",\n        \"name\": \"Men's Fashion\",\n        \"quantity\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Add Category to Product",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3333/category/:categoryId/product/:productId",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "category",
+                ":categoryId",
+                "product",
+                ":productId"
+              ],
+              "variable": [
+                {
+                  "key": "categoryId",
+                  "value": "cmtclqazm0003gkodnzh57m8l"
+                },
+                {
+                  "key": "productId",
+                  "value": "cmtcl9ogx0000m0odtwaanxpp"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Add Category to Product",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3333/category/:categoryId/product/:productId",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "category",
+                    ":categoryId",
+                    "product",
+                    ":productId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "categoryId",
+                      "value": "cmtclqazm0003gkodnzh57m8l"
+                    },
+                    {
+                      "key": "productId",
+                      "value": "cmtcl9ogx0000m0odtwaanxpp"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "56"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"38-sZC+D77yMnlsHBlinAn4sbaC3S8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 07:01:59 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Produto associado à categoria com sucesso\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Remove Category from Product",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3333/category/:categoryId/product/:productId",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "category",
+                ":categoryId",
+                "product",
+                ":productId"
+              ],
+              "variable": [
+                {
+                  "key": "categoryId",
+                  "value": "cmtclqazm0003gkodnzh57m8l"
+                },
+                {
+                  "key": "productId",
+                  "value": "cmtcl9ogx0000m0odtwaanxpp"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Remove Category from Product",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3333/category/:categoryId/product/:productId",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "category",
+                    ":categoryId",
+                    "product",
+                    ":productId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "categoryId",
+                      "value": "cmtclqazm0003gkodnzh57m8l"
+                    },
+                    {
+                      "key": "productId",
+                      "value": "cmtcl9ogx0000m0odtwaanxpp"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "60"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3c-oCv6qaI884sRwRWrqwzn346eUr8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 07:02:57 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Produto desassociado da categoria com sucesso.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Category",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3333/category/:categoryId",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "category",
+                ":categoryId"
+              ],
+              "variable": [
+                {
+                  "key": "categoryId",
+                  "value": "cmtclqazm0003gkodnzh57m8l"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Category",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3333/category/:categoryId",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "category",
+                    ":categoryId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "categoryId",
+                      "value": "cmtclqazm0003gkodnzh57m8l"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "45"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2d-oDiVCDWTWD+2xXpYuixejjAPRrs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 07:03:15 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Categoria deletada com sucesso.\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Review",
+      "item": [
+        {
+          "name": "Create Review",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOm51bGx9LCJpYXQiOjE3ODc4OTkzNTgsImV4cCI6MTc4ODUwNDE1OH0.mnxQbhO-8ssDBrZwz9nVKJzW5B7xMwxAN3cFbEeSwiZW0HiIya33LIHUSkTohF8LaJdjht1VjoWEcalerWSf8XXC2VQ8JqAN7TmdU_KaiJLbEzBQS6H6N-pIuvjzBLRBbLtPR2CEEJtr8LqTFB4Ui1sQGsw4-MgbbvsN9XD1kEAc_U2froc-hFHEY0ONeHhgZymX5OKg2PEevAVUFjg1WRifdXTbS1mPnMwao6CEDiFVZLGOwPyjiomoSW3DRtLSoO1XJXhoX4Qe5483Ns4m0ytjO9swpM-t5DO5pzmN2y7P4C2DVKIbmwif7Yjz4-VVzR_nxwX_H6YCM8IKDZOfQt-u7C0f4gobS50WsUU9un48KqTTghbFaUMQz6VQKYHodhn6nXigt8hpKHW60uy3JfNtHrktGAIwevoRR3mKI5oxG2DDv00g6mOxHOX9znZhx9gqdFRSlS6geTaQITzfRwjkdbN5wqCCbjQVjLtbjgYe9lK0YI02db7qcqom6C3AbJgvrueGw7xwbXfgWBgXHorQlfuaVG-pqb8zryQWToJylvXG38XlmOCvKkQx-fGCmZYZFmeTn17iaOtDzN547Vj-Pc63GZIGUdWJ-Wu3WL2WDDZ9fxd5M_u4_b05j9QVGsIL9BEZekx_qptrkI3cy8XIF-py9NYSCTbtAdKk0_I",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"rating\": 4,\r\n    \"text\": \"Ótimo produto! É o que eu esperava e chegou rápido.\",\r\n    \"productId\": \"cmtcl9ogx0000m0odtwaanxpp\",\r\n    \"userId\": \"cmtcjbw5c0001x0od69cuhbny\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/review",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "review"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Review",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"rating\": 4,\r\n    \"text\": \"Ótimo produto! É o que eu esperava e chegou rápido.\",\r\n    \"productId\": \"cmtcl9ogx0000m0odtwaanxpp\",\r\n    \"userId\": \"cmtcjbw5c0001x0od69cuhbny\"\r\n\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/review",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "review"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "241"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"f1-dbs6s8U/jqdirqzveDQ3c10jJRM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 07:08:12 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Avaliação criada com sucesso.\",\n    \"review\": {\n        \"id\": \"cmtcm11k20004gkod93nt7kxz\",\n        \"rating\": 4,\n        \"text\": \"Ótimo produto! É o que eu esperava e chegou rápido.\",\n        \"userId\": \"cmtcjbw5c0001x0od69cuhbny\",\n        \"productId\": \"cmtcl9ogx0000m0odtwaanxpp\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Read Review",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/review/:reviewId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "review",
+                ":reviewId"
+              ],
+              "variable": [
+                {
+                  "key": "reviewId",
+                  "value": "cmtcm11k20004gkod93nt7kxz"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Read Review",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/review/:reviewId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "review",
+                    ":reviewId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "reviewId",
+                      "value": "cmtcm11k20004gkod93nt7kxz"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "935"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a7-KDMn0UmxsJWo1D+mihvbCrV0xWc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 07:08:48 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": \"cmtcm11k20004gkod93nt7kxz\",\n    \"rating\": 4,\n    \"text\": \"Ótimo produto! É o que eu esperava e chegou rápido.\",\n    \"userId\": \"cmtcjbw5c0001x0od69cuhbny\",\n    \"productId\": \"cmtcl9ogx0000m0odtwaanxpp\",\n    \"user\": {\n        \"id\": \"cmtcjbw5c0001x0od69cuhbny\",\n        \"firstName\": \"zé\",\n        \"lastName\": \"Horta\",\n        \"email\": \"taylorhorta@gmail.com\",\n        \"smsNotification\": false,\n        \"marketingEmails\": false,\n        \"orderUpdates\": true,\n        \"newArrivals\": false,\n        \"gender\": null,\n        \"salesAlerts\": false,\n        \"birthDate\": null,\n        \"memberSince\": \"2026-08-28T00:00:00.000Z\",\n        \"emailNotification\": true,\n        \"hash\": \"9e0a01a07ce73b6e64d127cc9b451baf04dc6c8f01969adf4603f7090056a482803ccab219ebda69de18fd26a0b385b9c7f9c7108ddd34e1f39786be41663f87\",\n        \"salt\": \"dbda8a5dc4519a67b06fb21bd7d879fb4680ce1d665f9c5c7d7bb656e9108be0\"\n    },\n    \"product\": {\n        \"id\": \"cmtcl9ogx0000m0odtwaanxpp\",\n        \"name\": \"Camisa falsificada da adidas\",\n        \"description\": \"Camisa da adidas legal\",\n        \"discount\": 0,\n        \"tag\": \"Man's Fashion\",\n        \"specification\": \"Camisa feita em Bangladesh com tecido premium\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Read all Reviews",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/reviews",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "reviews"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Read all Reviews",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/reviews",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "reviews"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "937"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3a9-m0dfU+UM/9tOSH/zmhJrggW6UyE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 07:09:01 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": \"cmtcm11k20004gkod93nt7kxz\",\n        \"rating\": 4,\n        \"text\": \"Ótimo produto! É o que eu esperava e chegou rápido.\",\n        \"userId\": \"cmtcjbw5c0001x0od69cuhbny\",\n        \"productId\": \"cmtcl9ogx0000m0odtwaanxpp\",\n        \"user\": {\n            \"id\": \"cmtcjbw5c0001x0od69cuhbny\",\n            \"firstName\": \"zé\",\n            \"lastName\": \"Horta\",\n            \"email\": \"taylorhorta@gmail.com\",\n            \"smsNotification\": false,\n            \"marketingEmails\": false,\n            \"orderUpdates\": true,\n            \"newArrivals\": false,\n            \"gender\": null,\n            \"salesAlerts\": false,\n            \"birthDate\": null,\n            \"memberSince\": \"2026-08-28T00:00:00.000Z\",\n            \"emailNotification\": true,\n            \"hash\": \"9e0a01a07ce73b6e64d127cc9b451baf04dc6c8f01969adf4603f7090056a482803ccab219ebda69de18fd26a0b385b9c7f9c7108ddd34e1f39786be41663f87\",\n            \"salt\": \"dbda8a5dc4519a67b06fb21bd7d879fb4680ce1d665f9c5c7d7bb656e9108be0\"\n        },\n        \"product\": {\n            \"id\": \"cmtcl9ogx0000m0odtwaanxpp\",\n            \"name\": \"Camisa falsificada da adidas\",\n            \"description\": \"Camisa da adidas legal\",\n            \"discount\": 0,\n            \"tag\": \"Man's Fashion\",\n            \"specification\": \"Camisa feita em Bangladesh com tecido premium\"\n        }\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Update Review",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"rating\": 2,\r\n    \"text\": \"Mudei de ideia, o produto não é tão bom assim...\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/review/:reviewId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "review",
+                ":reviewId"
+              ],
+              "variable": [
+                {
+                  "key": "reviewId",
+                  "value": "cmtcm11k20004gkod93nt7kxz"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Review",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"rating\": 2,\r\n    \"text\": \"Mudei de ideia, o produto não é tão bom assim...\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/review/:reviewId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "review",
+                    ":reviewId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "reviewId",
+                      "value": "cmtcm11k20004gkod93nt7kxz"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "242"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"f2-qYpH7I26G5d4gN1NfzKwMTT0UXI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 07:09:53 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Avaliação atualizada com sucesso.\",\n    \"review\": {\n        \"id\": \"cmtcm11k20004gkod93nt7kxz\",\n        \"rating\": 2,\n        \"text\": \"Mudei de ideia, o produto não é tão bom assim...\",\n        \"userId\": \"cmtcjbw5c0001x0od69cuhbny\",\n        \"productId\": \"cmtcl9ogx0000m0odtwaanxpp\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Review",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/review/:reviewId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "review",
+                ":reviewId"
+              ],
+              "variable": [
+                {
+                  "key": "reviewId",
+                  "value": "cmtcm11k20004gkod93nt7kxz"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Review",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/review/:reviewId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "review",
+                    ":reviewId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "reviewId",
+                      "value": "cmtcm11k20004gkod93nt7kxz"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "47"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2f-a9NI8yHx7O6cBx98DIFJH44tj9M\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 08:09:32 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Avaliação deletada com sucesso.\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cart",
+      "item": [
+        {
+          "name": "Read all Carts",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/carts",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "carts"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Read all Carts",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/carts",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "carts"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "119"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"77-+XzP9yfFrlbP8BvUvTOjP4jySuQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 07:33:46 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": \"cmtcjbw5g0002x0odfijmvivs\",\n        \"totalPrice\": 0,\n        \"shipping\": 0,\n        \"totalQuantity\": 0,\n        \"userId\": \"cmtcjbw5c0001x0od69cuhbny\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "add Variant to Cart",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOm51bGx9LCJpYXQiOjE3ODc5MDI5NjQsImV4cCI6MTc4ODUwNzc2NH0.zPb3ETYJ4RlD_57wpAAB8cn92ZhZSJWdc0k0cHj28vxaFGCLxTE9YMzPaDigcUDZHUWo4dXYvkppoRkj3RI4zS3VdE6kuNxq0Z-tTfgHu4Y8qHMTu8u4Iv9pEU5KdR-PCxQBD4G19R6vsdt_7PiyhbyPQe7Xq2hIteYkA7h8VHkvDJYlAEv02zosyObhuYRof-rtzP0rgamJMfx63jQXlmuD2BELo2uyd2PrqfPg-m-vULS8fpndJM_OzC1xY8S_xs5YBeTweSn5iZ8s7oYMNXGpShQoH8R5zYC1VOkwleZC6GM4c57eLL9MhY8FrUvH6JyqRQp9PfDRFylW26jF4kze4PKD0SlgwzwgE2oR-GnhcGdNAhks3PocaBLZ6thtQl2jJc8BDWpUDCoNh4jyv_JtfkgB2wKqP_hZlC_S6EJkApvxShEGP7wqkt7iEivqNor7cWU9tLmhtQCq7spV9ODMSsd-F5dHyeEGqumREmIa7qUDgkg4UvZY94uKjTG4dG65tfjAXQspKCxPiYxp9oH4ALJF5ig2pwLOikTVThAF0o1ILyyY2WU2_75ux6RZ-2oj9DtwdmbX6g7Z44cn7aY4SY-_2Wa4jpiblUEye0yM_HgGtj8n8VIyHHc5ddXbmewQRDiCo3_sD1AT0xEHaM29UI8Ig1QSAjIBMXwk2D4",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"variantId\":\"cmtclifpg0000gkodhcdcarbu\",\r\n    \"itemQuantity\": 3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/cart/:cartId/add",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "cart",
+                ":cartId",
+                "add"
+              ],
+              "variable": [
+                {
+                  "key": "cartId",
+                  "value": "cmtcjbw5g0002x0odfijmvivs"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "add Variant to Cart",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"variantId\":\"cmtclifpg0000gkodhcdcarbu\",\r\n    \"itemQuantity\": 3\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/cart/:cartId/add",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "cart",
+                    ":cartId",
+                    "add"
+                  ],
+                  "variable": [
+                    {
+                      "key": "cartId",
+                      "value": "cmtcjbw5g0002x0odfijmvivs"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "45"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2d-9qT2hBZQb1Zp18x+S9b3aFL8MpQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 07:58:24 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Variante adicionada ao carrinho\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Order",
+      "item": [
+        {
+          "name": "Create Order",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOm51bGx9LCJpYXQiOjE3ODc5MDI5NjQsImV4cCI6MTc4ODUwNzc2NH0.zPb3ETYJ4RlD_57wpAAB8cn92ZhZSJWdc0k0cHj28vxaFGCLxTE9YMzPaDigcUDZHUWo4dXYvkppoRkj3RI4zS3VdE6kuNxq0Z-tTfgHu4Y8qHMTu8u4Iv9pEU5KdR-PCxQBD4G19R6vsdt_7PiyhbyPQe7Xq2hIteYkA7h8VHkvDJYlAEv02zosyObhuYRof-rtzP0rgamJMfx63jQXlmuD2BELo2uyd2PrqfPg-m-vULS8fpndJM_OzC1xY8S_xs5YBeTweSn5iZ8s7oYMNXGpShQoH8R5zYC1VOkwleZC6GM4c57eLL9MhY8FrUvH6JyqRQp9PfDRFylW26jF4kze4PKD0SlgwzwgE2oR-GnhcGdNAhks3PocaBLZ6thtQl2jJc8BDWpUDCoNh4jyv_JtfkgB2wKqP_hZlC_S6EJkApvxShEGP7wqkt7iEivqNor7cWU9tLmhtQCq7spV9ODMSsd-F5dHyeEGqumREmIa7qUDgkg4UvZY94uKjTG4dG65tfjAXQspKCxPiYxp9oH4ALJF5ig2pwLOikTVThAF0o1ILyyY2WU2_75ux6RZ-2oj9DtwdmbX6g7Z44cn7aY4SY-_2Wa4jpiblUEye0yM_HgGtj8n8VIyHHc5ddXbmewQRDiCo3_sD1AT0xEHaM29UI8Ig1QSAjIBMXwk2D4",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\": \"cmtcjbw5c0001x0od69cuhbny\",\r\n    \"adress\":\"Rua Ronaldo Murth\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/order",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "order"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Order",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"userId\": \"cmtcjbw5c0001x0od69cuhbny\",\r\n    \"adress\":\"Rua Ronaldo Murth\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/order",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "order"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "280"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"118-JFOl1QXKF2FDQXIirqdhgVigNV4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 07:59:34 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Pedido criado com sucesso\",\n    \"order\": {\n        \"id\": \"cmtcnv3rq0001pwod9bfcqxvn\",\n        \"totalQuantity\": 3,\n        \"status\": \"PROCESSING\",\n        \"adress\": \"Rua Ronaldo Murth\",\n        \"totalPrice\": 91.62,\n        \"date\": \"2026-08-28T07:59:34.358Z\",\n        \"shipping\": 0,\n        \"paymentMethod\": \"PENDING\",\n        \"userId\": \"cmtcjbw5c0001x0od69cuhbny\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Read Order",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOm51bGx9LCJpYXQiOjE3ODc5MDI5NjQsImV4cCI6MTc4ODUwNzc2NH0.zPb3ETYJ4RlD_57wpAAB8cn92ZhZSJWdc0k0cHj28vxaFGCLxTE9YMzPaDigcUDZHUWo4dXYvkppoRkj3RI4zS3VdE6kuNxq0Z-tTfgHu4Y8qHMTu8u4Iv9pEU5KdR-PCxQBD4G19R6vsdt_7PiyhbyPQe7Xq2hIteYkA7h8VHkvDJYlAEv02zosyObhuYRof-rtzP0rgamJMfx63jQXlmuD2BELo2uyd2PrqfPg-m-vULS8fpndJM_OzC1xY8S_xs5YBeTweSn5iZ8s7oYMNXGpShQoH8R5zYC1VOkwleZC6GM4c57eLL9MhY8FrUvH6JyqRQp9PfDRFylW26jF4kze4PKD0SlgwzwgE2oR-GnhcGdNAhks3PocaBLZ6thtQl2jJc8BDWpUDCoNh4jyv_JtfkgB2wKqP_hZlC_S6EJkApvxShEGP7wqkt7iEivqNor7cWU9tLmhtQCq7spV9ODMSsd-F5dHyeEGqumREmIa7qUDgkg4UvZY94uKjTG4dG65tfjAXQspKCxPiYxp9oH4ALJF5ig2pwLOikTVThAF0o1ILyyY2WU2_75ux6RZ-2oj9DtwdmbX6g7Z44cn7aY4SY-_2Wa4jpiblUEye0yM_HgGtj8n8VIyHHc5ddXbmewQRDiCo3_sD1AT0xEHaM29UI8Ig1QSAjIBMXwk2D4",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/order/:orderId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "order",
+                ":orderId"
+              ],
+              "variable": [
+                {
+                  "key": "orderId",
+                  "value": "cmtcnv3rq0001pwod9bfcqxvn"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Read Order",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/order/:orderId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "order",
+                    ":orderId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "orderId",
+                      "value": "cmtcnv3rq0001pwod9bfcqxvn"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "760"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2f8-aCsb79NJhwid72qibP5THMDir4g\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 08:00:33 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": \"cmtcnv3rq0001pwod9bfcqxvn\",\n    \"totalQuantity\": 3,\n    \"status\": \"PROCESSING\",\n    \"adress\": \"Rua Ronaldo Murth\",\n    \"totalPrice\": 91.62,\n    \"date\": \"2026-08-28T07:59:34.358Z\",\n    \"shipping\": 0,\n    \"paymentMethod\": \"PENDING\",\n    \"userId\": \"cmtcjbw5c0001x0od69cuhbny\",\n    \"user\": {\n        \"id\": \"cmtcjbw5c0001x0od69cuhbny\",\n        \"firstName\": \"zé\",\n        \"lastName\": \"Horta\",\n        \"email\": \"taylorhorta@gmail.com\",\n        \"smsNotification\": false,\n        \"marketingEmails\": false,\n        \"orderUpdates\": true,\n        \"newArrivals\": false,\n        \"gender\": null,\n        \"salesAlerts\": false,\n        \"birthDate\": null,\n        \"memberSince\": \"2026-08-28T00:00:00.000Z\",\n        \"emailNotification\": true,\n        \"hash\": \"9e0a01a07ce73b6e64d127cc9b451baf04dc6c8f01969adf4603f7090056a482803ccab219ebda69de18fd26a0b385b9c7f9c7108ddd34e1f39786be41663f87\",\n        \"salt\": \"dbda8a5dc4519a67b06fb21bd7d879fb4680ce1d665f9c5c7d7bb656e9108be0\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Read all Orders",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/orders",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "orders"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Read all Orders",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/orders",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "orders"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "234"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"ea-7Yc+QeN2n69OjrQK3HlSLHMprP4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 08:00:51 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": \"cmtcnv3rq0001pwod9bfcqxvn\",\n        \"totalQuantity\": 3,\n        \"status\": \"PROCESSING\",\n        \"adress\": \"Rua Ronaldo Murth\",\n        \"totalPrice\": 91.62,\n        \"date\": \"2026-08-28T07:59:34.358Z\",\n        \"shipping\": 0,\n        \"paymentMethod\": \"PENDING\",\n        \"userId\": \"cmtcjbw5c0001x0od69cuhbny\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Update Order",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOm51bGx9LCJpYXQiOjE3ODc5MDI5NjQsImV4cCI6MTc4ODUwNzc2NH0.zPb3ETYJ4RlD_57wpAAB8cn92ZhZSJWdc0k0cHj28vxaFGCLxTE9YMzPaDigcUDZHUWo4dXYvkppoRkj3RI4zS3VdE6kuNxq0Z-tTfgHu4Y8qHMTu8u4Iv9pEU5KdR-PCxQBD4G19R6vsdt_7PiyhbyPQe7Xq2hIteYkA7h8VHkvDJYlAEv02zosyObhuYRof-rtzP0rgamJMfx63jQXlmuD2BELo2uyd2PrqfPg-m-vULS8fpndJM_OzC1xY8S_xs5YBeTweSn5iZ8s7oYMNXGpShQoH8R5zYC1VOkwleZC6GM4c57eLL9MhY8FrUvH6JyqRQp9PfDRFylW26jF4kze4PKD0SlgwzwgE2oR-GnhcGdNAhks3PocaBLZ6thtQl2jJc8BDWpUDCoNh4jyv_JtfkgB2wKqP_hZlC_S6EJkApvxShEGP7wqkt7iEivqNor7cWU9tLmhtQCq7spV9ODMSsd-F5dHyeEGqumREmIa7qUDgkg4UvZY94uKjTG4dG65tfjAXQspKCxPiYxp9oH4ALJF5ig2pwLOikTVThAF0o1ILyyY2WU2_75ux6RZ-2oj9DtwdmbX6g7Z44cn7aY4SY-_2Wa4jpiblUEye0yM_HgGtj8n8VIyHHc5ddXbmewQRDiCo3_sD1AT0xEHaM29UI8Ig1QSAjIBMXwk2D4",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"paymentMethod\": \"PIX\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/order/:orderId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "order",
+                ":orderId"
+              ],
+              "variable": [
+                {
+                  "key": "orderId",
+                  "value": "cmtcnv3rq0001pwod9bfcqxvn"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Order",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"paymentMethod\": \"PIX\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/order/:orderId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "order",
+                    ":orderId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "orderId",
+                      "value": "cmtcnv3rq0001pwod9bfcqxvn"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "280"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"118-kV33uXTBVQBhVZ9b2YtkxRJBIbs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 28 Aug 2026 08:01:19 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Pedido atualizado com sucesso\",\n    \"order\": {\n        \"id\": \"cmtcnv3rq0001pwod9bfcqxvn\",\n        \"totalQuantity\": 3,\n        \"status\": \"PROCESSING\",\n        \"adress\": \"Rua Ronaldo Murth\",\n        \"totalPrice\": 91.62,\n        \"date\": \"2026-08-28T07:59:34.358Z\",\n        \"shipping\": 0,\n        \"paymentMethod\": \"PIX\",\n        \"userId\": \"cmtcjbw5c0001x0od69cuhbny\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "json_web_token_0z18",
+      "secret": true
+    },
+    {
+      "key": "supabase_service_role_api_key_0snn",
+      "secret": true
+    }
+  ]
+}
